@@ -63,6 +63,10 @@
     <Compile Include="Migrations\201603131613050_Initial.Designer.cs">
       <DependentUpon>201603131613050_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910151224383_BooksAndBooksCategories.cs" />
+    <Compile Include="Migrations\201910151224383_BooksAndBooksCategories.Designer.cs">
+      <DependentUpon>201910151224383_BooksAndBooksCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +96,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603131613050_Initial.resx">
       <DependentUpon>201603131613050_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910151224383_BooksAndBooksCategories.resx">
+      <DependentUpon>201910151224383_BooksAndBooksCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
