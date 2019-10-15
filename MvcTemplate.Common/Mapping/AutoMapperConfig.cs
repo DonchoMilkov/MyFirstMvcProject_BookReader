@@ -13,7 +13,7 @@
         {
             var types = assemblies.SelectMany(a => a.GetExportedTypes()).ToList();
 
-            Mapper.Initialize(configuration =>
+            new MapperConfiguration(configuration =>
             {
                 RegisterStandardFromMappings(configuration, types);
 
