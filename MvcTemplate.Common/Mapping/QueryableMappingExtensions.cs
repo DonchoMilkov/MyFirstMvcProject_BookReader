@@ -1,35 +1,35 @@
-﻿//namespace MvcTemplate.Common.Mapping
-//{
-//    using System;
-//    using System.Linq;
-//    using System.Linq.Expressions;
+﻿namespace MvcTemplate.Common.Mapping
+{
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
 
-//    using AutoMapper.QueryableExtensions;
+    using AutoMapper.QueryableExtensions;
 
-//    public static class QueryableMappingExtensions
-//    {
-//        public static IQueryable<TDestination> To<TDestination>(
-//            this IQueryable source,
-//            params Expression<Func<TDestination, object>>[] membersToExpand)
-//        {
-//            if (source == null)
-//            {
-//                throw new ArgumentNullException(nameof(source));
-//            }
+    public static class QueryableMappingExtensions
+    {
+        public static IQueryable<TDestination> To<TDestination>(
+            this IQueryable source,
+            params Expression<Func<TDestination, object>>[] membersToExpand)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
 
-//            return source.To(membersToExpand);
-//        }
+            return source.ProjectTo<TDestination>(AutoMapperConfig.Configuration, membersToExpand);
+        }
 
-//        public static IQueryable<TDestination> To<TDestination>(
-//            this IQueryable source,
-//            object parameters)
-//        {
-//            if (source == null)
-//            {
-//                throw new ArgumentNullException(nameof(source));
-//            }
+        public static IQueryable<TDestination> To<TDestination>(
+            this IQueryable source,
+            object parameters)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
 
-//            return source.To<TDestination>(parameters);
-//        }
-//    }
-//}
+            return source.ProjectTo<TDestination>(AutoMapperConfig.Configuration, parameters);
+        }
+    }
+}

@@ -18,7 +18,7 @@
 
         public IDbSet<Book> Books { get; set; }
 
-        public IDbSet<BookCategory> BookCategories { get; set; }
+        public IDbSet<BookCategory> BooksCategories { get; set; }
 
         public override int SaveChanges()
         {

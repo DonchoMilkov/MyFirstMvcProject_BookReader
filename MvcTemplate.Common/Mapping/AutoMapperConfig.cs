@@ -9,11 +9,13 @@
 
     public static class AutoMapperConfig
     {
+        public static MapperConfiguration Configuration { get; private set; }
+
         public static void RegisterMappings(params Assembly[] assemblies)
         {
             var types = assemblies.SelectMany(a => a.GetExportedTypes()).ToList();
 
-            new MapperConfiguration(configuration =>
+            Configuration = new MapperConfiguration(configuration =>
             {
                 RegisterStandardFromMappings(configuration, types);
 

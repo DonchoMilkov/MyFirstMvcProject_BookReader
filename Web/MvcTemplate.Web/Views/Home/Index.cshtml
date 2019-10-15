@@ -1,7 +1,13 @@
-﻿@{
+﻿@model IEnumerable<MvcTemplate.Web.ViewModels.Home.BookViewModel>
+@{
     this.ViewBag.Title = "Home Page";
 }
-<div class="jumbotron">
-    <h1>Welcome to MvcTemplate</h1>
-    <p class="lead">Welcome to MvcTemplate.</p>
+
+<div class="row">
+    @foreach (var book in Model)
+    {
+        <div class = "col-md-4">
+            @book.Content
+        </div>
+    }
 </div>
