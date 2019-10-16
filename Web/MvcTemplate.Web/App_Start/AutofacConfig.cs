@@ -15,6 +15,7 @@
     using MvcTemplate.Data;
     using MvcTemplate.Data.Common;
     using MvcTemplate.Data.Models;
+    using MvcTemplate.Services.Data;
     using MvcTemplate.Services.Web;
     using MvcTemplate.Web.Controllers;
 
@@ -74,8 +75,13 @@
                 .As(typeof(IDbRepository<>))
                 .InstancePerRequest();
 
+            var serviceAssembly = Assembly.GetAssembly(typeof(IBookService));
+            builder.RegisterAssemblyTypes(serviceAssembly).AsImplementedInterfaces();
+
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .AssignableTo<BaseController>().PropertiesAutowired();
+
+
         }
     }
 }

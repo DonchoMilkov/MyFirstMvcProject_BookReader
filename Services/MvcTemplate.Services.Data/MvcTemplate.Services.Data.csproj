@@ -45,10 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookService.cs" />
+    <Compile Include="CategoryService.cs" />
     <Compile Include="Common\BaseDataService{T}.cs" />
     <Compile Include="Common\BaseDataWithCreatorService{T}.cs" />
     <Compile Include="Common\Contracts\IBaseDataService{T}.cs" />
     <Compile Include="Common\Contracts\IBaseDataWithCreatorService{T}.cs" />
+    <Compile Include="IBookService.cs" />
+    <Compile Include="ICategoryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

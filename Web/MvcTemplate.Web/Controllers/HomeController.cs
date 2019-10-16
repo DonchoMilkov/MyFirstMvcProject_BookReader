@@ -1,20 +1,19 @@
 ﻿namespace MvcTemplate.Web.Controllers
 {
-    using MvcTemplate.Common.Mapping;
-    using MvcTemplate.Data.Common;
-    using MvcTemplate.Data.Models;
-    using MvcTemplate.Web.ViewModels.Home;
     using System.Linq;
     using System.Web.Mvc;
+    using MvcTemplate.Common.Mapping;
+    using MvcTemplate.Services.Data;
+    using MvcTemplate.Web.ViewModels.Home;
 
     public class HomeController : BaseController
     {
-        private IDbRepository<Book> books;
-        private IDbRepository<BookCategory> bookCategories;
+        private IBookService books;
+        private ICategoryService bookCategories;
 
         public HomeController(
-            IDbRepository<Book> books,
-            IDbRepository<BookCategory> bookCategories)
+        IBookService books,
+        ICategoryService bookCategories)
         {
             this.books = books;
             this.bookCategories = bookCategories;
@@ -22,11 +21,16 @@
 
         public ActionResult Index()
         {
-            var books = this.books.All()
-                .Take(3)
-                .To<BookViewModel>()
-                .ToList();
-            return this.View(books);
+            var books = this.books.GetRandomBooks(3).To<BookViewModel>().ToList();
+            var categories = this.bookCategories.GetAll().To<BookCategoryViewModel>().ToList();
+
+            var viewModel = new IndexViewModel
+            {
+               Books = books,
+               BookCategories = categories,
+            };
+
+            return this.View(viewModel);
         }
     }
 }
