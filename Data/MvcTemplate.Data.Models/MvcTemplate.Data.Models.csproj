@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Book.cs" />
+    <Compile Include="BookAuthor.cs" />
     <Compile Include="BookCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -20,6 +20,8 @@
 
         public IDbSet<BookCategory> BooksCategories { get; set; }
 
+        public IDbSet<BookAuthor> BookAuthors { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

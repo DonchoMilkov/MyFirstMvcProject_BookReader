@@ -1,13 +1,14 @@
+#pragma warning disable SA1412 // Store files as UTF-8 with byte order mark
 namespace MvcTemplate.Data.Migrations
+#pragma warning restore SA1412 // Store files as UTF-8 with byte order mark
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class BooksAndBooksCategories : DbMigration
     {
         public override void Up()
         {
-            CreateTable(
+            this.CreateTable(
                 "dbo.Books",
                 c => new
                     {
@@ -24,8 +25,8 @@ namespace MvcTemplate.Data.Migrations
                 .ForeignKey("dbo.BookCategories", t => t.CategoryId, cascadeDelete: true)
                 .Index(t => t.CategoryId)
                 .Index(t => t.IsDeleted);
-            
-            CreateTable(
+
+            this.CreateTable(
                 "dbo.BookCategories",
                 c => new
                     {
@@ -38,17 +39,16 @@ namespace MvcTemplate.Data.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.IsDeleted);
-            
         }
-        
+
         public override void Down()
         {
-            DropForeignKey("dbo.Books", "CategoryId", "dbo.BookCategories");
-            DropIndex("dbo.BookCategories", new[] { "IsDeleted" });
-            DropIndex("dbo.Books", new[] { "IsDeleted" });
-            DropIndex("dbo.Books", new[] { "CategoryId" });
-            DropTable("dbo.BookCategories");
-            DropTable("dbo.Books");
+            this.DropForeignKey("dbo.Books", "CategoryId", "dbo.BookCategories");
+            this.DropIndex("dbo.BookCategories", new[] { "IsDeleted" });
+            this.DropIndex("dbo.Books", new[] { "IsDeleted" });
+            this.DropIndex("dbo.Books", new[] { "CategoryId" });
+            this.DropTable("dbo.BookCategories");
+            this.DropTable("dbo.Books");
         }
     }
 }
