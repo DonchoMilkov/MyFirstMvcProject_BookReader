@@ -6,5 +6,7 @@
     public interface IBookService
     {
         IQueryable<Book> GetRandomBooks(int count);
+
+        IQueryable<Book> GetAllBooks();
     }
 }
