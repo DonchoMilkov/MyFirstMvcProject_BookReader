@@ -21,7 +21,7 @@
 
         public ActionResult Index()
         {
-            var books = this.books.GetRandomBooks(3).To<BookViewModel>().ToList();
+            var books = this.books.GetAllBooks().To<BookViewModel>().ToList();
             var categories = this.bookCategories.GetAll().To<BookCategoryViewModel>().ToList();
 
             var viewModel = new IndexViewModel

@@ -3,15 +3,21 @@
     this.ViewBag.Title = "Home Page";
 }
 
+    <h1>Books</h1>
+
 <div class="row">
     @foreach (var book in Model.Books)
     {
-    <div class="col-md-4">
-        @book.Content
-        <div>@book.Category</div>
+    <div class="col-md-2">
+        <strong>Title:</strong>  @book.Title
+        <div><strong>Category:</strong> @book.Category</div>
+        <div><strong>Author:</strong> @book.Author</div>
+        <hr />
     </div>
     }
 </div>
+
+<h1>Categories</h1>
 
 <div class="row">
     @foreach (var category in Model.BookCategories)
