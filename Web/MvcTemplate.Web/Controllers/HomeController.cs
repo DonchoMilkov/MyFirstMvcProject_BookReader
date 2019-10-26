@@ -22,7 +22,8 @@
         public ActionResult Index()
         {
             var books = this.books.GetAllBooks().To<BookViewModel>().ToList();
-            var categories = this.bookCategories.GetAll().To<BookCategoryViewModel>().ToList();
+            var categories =
+                this.Cache.Get("categories", () => this.bookCategories.GetAll().To<BookCategoryViewModel>().ToList(), 30 * 60);
 
             var viewModel = new IndexViewModel
             {

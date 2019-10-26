@@ -8,5 +8,7 @@
         IQueryable<Book> GetRandomBooks(int count);
 
         IQueryable<Book> GetAllBooks();
+
+        Book GetById(string id);
     }
 }

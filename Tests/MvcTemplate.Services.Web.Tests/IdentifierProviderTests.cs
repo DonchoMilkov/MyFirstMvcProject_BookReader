@@ -8,7 +8,7 @@
         [Test]
         public void EncodingAndDecodingDoesntChangeTheId()
         {
-            const int Id = 1337;
+            const int Id = 846;
             IIdentifierProvider provider = new IdentifierProvider();
             var encoded = provider.EncodeId(Id);
             var actual = provider.DecodeId(encoded);

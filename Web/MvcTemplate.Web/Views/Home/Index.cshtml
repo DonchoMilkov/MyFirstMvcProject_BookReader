@@ -2,14 +2,23 @@
 @{
     this.ViewBag.Title = "Home Page";
 }
-
+    
+    <ul class="list-group float-left">
+        <li class = "list-group-item font-weight-bolder">Categories</li>
+        @foreach (var category in Model.BookCategories)
+        {
+            <li class="list-group-item">
+                <a href="">@category.Name</a>
+            </li>
+        }
+    </ul>
     <h1>Books</h1>
 
-<div class="row">
+<div class="col-md-3 float-left">
     @foreach (var book in Model.Books)
     {
-    <div class="col-md-2">
-        <strong>Title:</strong>  @book.Title
+    <div>
+        <strong>Title:</strong> <a href="@book.Url">@book.Title</a> 
         <div><strong>Category:</strong> @book.Category</div>
         <div><strong>Author:</strong> @book.Author</div>
         <hr />
@@ -17,13 +26,5 @@
     }
 </div>
 
-<h1>Categories</h1>
 
-<ul class="list-group">
-    @foreach (var category in Model.BookCategories)
-    {
-        <li class= "list-group-item">
-            @category.Name
-        </li>
-    }
-</ul>
+

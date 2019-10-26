@@ -3,14 +3,26 @@
     using AutoMapper;
     using MvcTemplate.Common.Mapping;
     using MvcTemplate.Data.Models;
+    using MvcTemplate.Services.Web;
 
     public class BookViewModel : IMapFrom<Book>, IHaveCustomMappings
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public string Category { get; set; }
 
         public string Author { get; set; }
+
+        public string Url
+        {
+            get
+            {
+                IIdentifierProvider identifier = new IdentifierProvider();
+                return $"/Book/{identifier.EncodeId(this.Id)}";
+            }
+        }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
