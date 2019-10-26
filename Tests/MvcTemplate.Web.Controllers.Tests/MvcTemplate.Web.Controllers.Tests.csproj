@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BooksControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +108,10 @@
     <ProjectReference Include="..\..\Data\MvcTemplate.Data.Models\MvcTemplate.Data.Models.csproj">
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
       <Name>MvcTemplate.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MvcTemplate.Common\MvcTemplate.Common.csproj">
+      <Project>{701F322F-AA01-4DDC-90B6-6935981C1E73}</Project>
+      <Name>MvcTemplate.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\MvcTemplate.Services.Data\MvcTemplate.Services.Data.csproj">
       <Project>{90fe4c4d-122a-406d-8a40-79c561fb8184}</Project>

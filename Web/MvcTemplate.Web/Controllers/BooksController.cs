@@ -1,23 +1,18 @@
-﻿
-using MvcTemplate.Common.Mapping;
-using MvcTemplate.Services.Data;
-using MvcTemplate.Services.Web;
-using MvcTemplate.Web.ViewModels.Home;
-using System.Web.Mvc;
-
-namespace MvcTemplate.Web.Controllers
+﻿namespace MvcTemplate.Web.Controllers
 {
+    using System.Web.Mvc;
+    using MvcTemplate.Common.Mapping;
+    using MvcTemplate.Services.Data;
+    using MvcTemplate.Web.ViewModels.Home;
+
     public class BooksController : BaseController
     {
         private IBookService books;
-        private IIdentifierProvider identifierProvider;
 
         public BooksController(
-            IIdentifierProvider identifierProvider,
             IBookService books)
         {
             this.books = books;
-            this.identifierProvider = identifierProvider;
         }
 
         public ActionResult ById(string id)
