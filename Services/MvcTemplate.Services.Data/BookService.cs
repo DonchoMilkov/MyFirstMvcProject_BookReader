@@ -38,6 +38,7 @@
                 .OrderByDescending(x => x.CreatedOn)
                 .Take(count);
         }
+
         public IQueryable<Book> GetTopBooks(int count)
         {
             return this.books.All()
