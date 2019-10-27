@@ -74,6 +74,14 @@
     <Compile Include="Migrations\201910250906212_BookAuthorsAndUserLibrary.Designer.cs">
       <DependentUpon>201910250906212_BookAuthorsAndUserLibrary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910271106398_LanguageRaitingCover.cs" />
+    <Compile Include="Migrations\201910271106398_LanguageRaitingCover.Designer.cs">
+      <DependentUpon>201910271106398_LanguageRaitingCover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910271124177_FormatRestraintsAndRequiredFields.cs" />
+    <Compile Include="Migrations\201910271124177_FormatRestraintsAndRequiredFields.Designer.cs">
+      <DependentUpon>201910271124177_FormatRestraintsAndRequiredFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,6 +117,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910250906212_BookAuthorsAndUserLibrary.resx">
       <DependentUpon>201910250906212_BookAuthorsAndUserLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910271106398_LanguageRaitingCover.resx">
+      <DependentUpon>201910271106398_LanguageRaitingCover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910271124177_FormatRestraintsAndRequiredFields.resx">
+      <DependentUpon>201910271124177_FormatRestraintsAndRequiredFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

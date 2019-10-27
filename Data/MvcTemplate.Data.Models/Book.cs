@@ -2,7 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     using MvcTemplate.Data.Common.Models;
 
     public class Book : BaseModel<int>
@@ -13,9 +14,20 @@
             this.Readers = new HashSet<ApplicationUser>();
         }
 
+        [Required]
+        [StringLength(150)]
         public string Title { get; set; }
 
         public string Content { get; set; }
+
+        [DefaultValue("English")]
+        [StringLength(100)]
+        public string Language { get; set; }
+
+        [DefaultValue("0")]
+        public double? Raiting { get; set; }
+
+        public byte[] Cover { get; set; }
 
         public int CategoryId { get; set; }
 
