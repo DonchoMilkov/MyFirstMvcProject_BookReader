@@ -32,11 +32,25 @@
             return book;
         }
 
+        public IQueryable<Book> GetLatestBooks(int count)
+        {
+            return this.books.All()
+                .OrderByDescending(x => x.CreatedOn)
+                .Take(count);
+        }
+        public IQueryable<Book> GetTopBooks(int count)
+        {
+            return this.books.All()
+                .OrderByDescending(x => x.Raiting)
+                .Take(count);
+        }
+
         public IQueryable<Book> GetRandomBooks(int count)
         {
             return this.books.All()
                  .OrderBy(x => Guid.NewGuid())
                  .Take(count);
         }
+
     }
 }

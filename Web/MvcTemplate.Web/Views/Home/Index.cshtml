@@ -2,29 +2,37 @@
 @{
     this.ViewBag.Title = "Home Page";
 }
-    
+
     <ul class="list-group float-left">
-        <li class = "list-group-item font-weight-bolder">Categories</li>
-        @foreach (var category in Model.BookCategories)
+        <li class="list-group-item font-weight-bolder">Top Rated Books</li>
+        @foreach (var book in Model.TopRatedBooks)
         {
-            <li class="list-group-item">
-                <a href="">@category.Name</a>
-            </li>
+    <li class="list-group-item">
+        <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
+        <span class="font-weight-bold">Title:</span> @book.Title <br />
+        <span class="font-weight-bold">Author:</span> @book.Author <br />
+        <span class="font-weight-bold">Language:</span> @book.Language <br />
+        <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
+        <span class="font-weight-bold">Uploaded:</span> @book.CreatedOn.ToShortDateString()
+    </li>
         }
     </ul>
-    <h1>Books</h1>
 
-<div class="col-md-3 float-left">
-    @foreach (var book in Model.Books)
-    {
-    <div>
-        <strong>Title:</strong> <a href="@book.Url">@book.Title</a> 
-        <div><strong>Category:</strong> @book.Category</div>
-        <div><strong>Author:</strong> @book.Author</div>
-        <hr />
-    </div>
-    }
-</div>
+    <ul class="list-group float-left">
+        <li class="list-group-item font-weight-bolder">Latest Uploads</li>
+        @foreach (var book in Model.LatestUploadedBooks)
+        {
+    <li class="list-group-item">
+        <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
+        <span class="font-weight-bold">Title:</span> @book.Title <br />
+        <span class="font-weight-bold">Author:</span> @book.Author <br />
+        <span class="font-weight-bold">Language:</span> @book.Language <br />
+        <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
+        <span class="font-weight-bold">Uploaded:</span> @book.CreatedOn.ToShortDateString()
+    </li>
+        }
+    </ul>
+
 
 
 

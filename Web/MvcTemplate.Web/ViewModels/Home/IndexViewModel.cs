@@ -4,8 +4,8 @@
 
     public class IndexViewModel
     {
-        public IEnumerable<BookViewModel> Books { get; set; }
+        public IEnumerable<BookViewModel> TopRatedBooks { get; set; }
 
-        public IEnumerable<BookCategoryViewModel> BookCategories { get; set; }
+        public IEnumerable<BookViewModel> LatestUploadedBooks { get; set; }
     }
 }

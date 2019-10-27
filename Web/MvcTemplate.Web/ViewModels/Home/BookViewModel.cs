@@ -1,5 +1,6 @@
 ﻿namespace MvcTemplate.Web.ViewModels.Home
 {
+    using System;
     using AutoMapper;
     using MvcTemplate.Common.Mapping;
     using MvcTemplate.Data.Models;
@@ -16,6 +17,12 @@
         public string Author { get; set; }
 
         public string Content { get; set; }
+
+        public double Raiting { get; set; }
+
+        public string Language { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         public string Url
         {

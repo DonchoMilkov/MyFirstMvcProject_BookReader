@@ -5,7 +5,9 @@
 
     public interface IBookService
     {
-        IQueryable<Book> GetRandomBooks(int count);
+        IQueryable<Book> GetTopBooks(int count);
+
+        IQueryable<Book> GetLatestBooks(int count);
 
         IQueryable<Book> GetAllBooks();
 
