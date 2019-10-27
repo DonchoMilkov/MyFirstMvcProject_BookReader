@@ -12,5 +12,7 @@
         IQueryable<Book> GetAllBooks();
 
         Book GetById(string id);
+
+        IQueryable<Book> GetAllBooks();
     }
 }

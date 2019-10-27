@@ -45,6 +45,12 @@
                 .Take(count);
         }
 
+        public IQueryable<Book> GetAllBooks()
+        {
+            return this.books.All()
+                .OrderBy(x => x.Title);
+        }
+
         public IQueryable<Book> GetRandomBooks(int count)
         {
             return this.books.All()
