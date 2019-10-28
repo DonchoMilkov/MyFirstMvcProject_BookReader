@@ -7,9 +7,10 @@
         <li class="list-group-item font-weight-bolder">Top Rated Books</li>
         @foreach (var book in Model.TopRatedBooks)
         {
+
     <li class="list-group-item">
         <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
-        <span class="font-weight-bold">Title:</span> @book.Title <br />
+        <span class="font-weight-bold">Title:</span> <a href=@book.Url>@book.Title</a> <br />
         <span class="font-weight-bold">Author:</span> @book.Author <br />
         <span class="font-weight-bold">Language:</span> @book.Language <br />
         <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
@@ -24,7 +25,7 @@
         {
     <li class="list-group-item">
         <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
-        <span class="font-weight-bold">Title:</span> @book.Title <br />
+        <span class="font-weight-bold">Title:</span> <a href=@book.Url>@book.Title</a> <br />
         <span class="font-weight-bold">Author:</span> @book.Author <br />
         <span class="font-weight-bold">Language:</span> @book.Language <br />
         <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
