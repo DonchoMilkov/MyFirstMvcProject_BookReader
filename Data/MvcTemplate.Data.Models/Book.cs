@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using MvcTemplate.Data.Common.Models;
 
     public class Book : BaseModel<int>
@@ -11,7 +12,7 @@
         public Book()
         {
             this.CreatedOn = DateTime.UtcNow;
-            this.Readers = new HashSet<ApplicationUser>();
+            this.ApplicationUserBooks = new HashSet<ApplicationUserBooks>();
         }
 
         [Required]
@@ -37,6 +38,6 @@
 
         public virtual BookAuthor Author { get; set; }
 
-        public virtual ICollection<ApplicationUser> Readers { get; set; }
+        public virtual ICollection<ApplicationUserBooks> ApplicationUserBooks { get; set; }
     }
 }

@@ -70,17 +70,13 @@
     <Compile Include="Migrations\201910151255206_BooksAndBooksCategories.Designer.cs">
       <DependentUpon>201910151255206_BooksAndBooksCategories.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910250906212_BookAuthorsAndUserLibrary.cs" />
-    <Compile Include="Migrations\201910250906212_BookAuthorsAndUserLibrary.Designer.cs">
-      <DependentUpon>201910250906212_BookAuthorsAndUserLibrary.cs</DependentUpon>
+    <Compile Include="Migrations\201910290945230_BookAuthorsAndApplicationUserBooks.cs" />
+    <Compile Include="Migrations\201910290945230_BookAuthorsAndApplicationUserBooks.Designer.cs">
+      <DependentUpon>201910290945230_BookAuthorsAndApplicationUserBooks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910271106398_LanguageRaitingCover.cs" />
-    <Compile Include="Migrations\201910271106398_LanguageRaitingCover.Designer.cs">
-      <DependentUpon>201910271106398_LanguageRaitingCover.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910271124177_FormatRestraintsAndRequiredFields.cs" />
-    <Compile Include="Migrations\201910271124177_FormatRestraintsAndRequiredFields.Designer.cs">
-      <DependentUpon>201910271124177_FormatRestraintsAndRequiredFields.cs</DependentUpon>
+    <Compile Include="Migrations\201910290955421_ApplicationUserBooksDeletable.cs" />
+    <Compile Include="Migrations\201910290955421_ApplicationUserBooksDeletable.Designer.cs">
+      <DependentUpon>201910290955421_ApplicationUserBooksDeletable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,14 +111,11 @@
     <EmbeddedResource Include="Migrations\201910151255206_BooksAndBooksCategories.resx">
       <DependentUpon>201910151255206_BooksAndBooksCategories.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910250906212_BookAuthorsAndUserLibrary.resx">
-      <DependentUpon>201910250906212_BookAuthorsAndUserLibrary.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910290945230_BookAuthorsAndApplicationUserBooks.resx">
+      <DependentUpon>201910290945230_BookAuthorsAndApplicationUserBooks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910271106398_LanguageRaitingCover.resx">
-      <DependentUpon>201910271106398_LanguageRaitingCover.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910271124177_FormatRestraintsAndRequiredFields.resx">
-      <DependentUpon>201910271124177_FormatRestraintsAndRequiredFields.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910290955421_ApplicationUserBooksDeletable.resx">
+      <DependentUpon>201910290955421_ApplicationUserBooksDeletable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

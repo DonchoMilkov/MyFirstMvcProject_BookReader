@@ -12,6 +12,5 @@
         IQueryable<Book> GetAllBooks();
 
         Book GetById(string id);
-
     }
 }

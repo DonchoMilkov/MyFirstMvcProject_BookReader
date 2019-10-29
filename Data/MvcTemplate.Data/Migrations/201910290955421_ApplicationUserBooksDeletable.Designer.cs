@@ -7,13 +7,13 @@ namespace MvcTemplate.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class LanguageRaitingCover : IMigrationMetadata
+    public sealed partial class ApplicationUserBooksDeletable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(LanguageRaitingCover));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ApplicationUserBooksDeletable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910271106398_LanguageRaitingCover"; }
+            get { return "201910290955421_ApplicationUserBooksDeletable"; }
         }
         
         string IMigrationMetadata.Source

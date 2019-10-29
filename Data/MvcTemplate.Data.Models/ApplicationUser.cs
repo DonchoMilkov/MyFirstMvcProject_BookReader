@@ -16,9 +16,8 @@
         public ApplicationUser()
         {
             this.CreatedOn = DateTime.UtcNow;
-            this.UserLibrary = new HashSet<Book>();
+            this.ApplicationUserBooks = new HashSet<ApplicationUserBooks>();
         }
-
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
@@ -27,9 +26,8 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public virtual ICollection<Book> UserLibrary { get; set; }
+        public virtual ICollection<ApplicationUserBooks> ApplicationUserBooks { get; set; }
 
-        // public virtual ICollection<Tuple<Book, int>> LastPageRead { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
