@@ -329,6 +329,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Books\ById.cshtml" />
+    <Content Include="Views\Books\UploadBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
