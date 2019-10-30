@@ -1,10 +1,11 @@
-﻿@model MvcTemplate.Web.ViewModels.Home.BookViewModel
+﻿@model MvcTemplate.Web.ViewModels.Home.BookReadViewModel
 @{
     ViewBag.Title = "ById";
 }
 
     <div>
         <h2>@Model.Title</h2>
+        <h3>@Model.Author</h3>
         <p>
             @Model.Content
         </p>

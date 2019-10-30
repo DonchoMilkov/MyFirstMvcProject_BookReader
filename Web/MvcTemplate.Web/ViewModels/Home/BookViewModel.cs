@@ -33,6 +33,15 @@
             }
         }
 
+        public string UrlReview
+        {
+            get
+            {
+                IIdentifierProvider identifier = new IdentifierProvider();
+                return $"/Books/Review/{identifier.EncodeId(this.Id)}";
+            }
+        }
+
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Book, BookViewModel>()

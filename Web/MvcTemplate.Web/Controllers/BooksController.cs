@@ -23,7 +23,7 @@
         public ActionResult ById(string id)
         {
             var book = this.books.GetById(id);
-            var viewModel = AutoMapperConfig.Configuration.CreateMapper().Map<BookViewModel>(book);
+            var viewModel = AutoMapperConfig.Configuration.CreateMapper().Map<BookReadViewModel>(book);
             return this.View(viewModel);
         }
 
@@ -39,6 +39,13 @@
         public ActionResult UploadBook()
         {
             return this.View();
+        }
+
+        public ActionResult Review(string id)
+        {
+            var book = this.books.GetById(id);
+            var viewModel = AutoMapperConfig.Configuration.CreateMapper().Map<BookViewModel>(book);
+            return this.View(viewModel);
         }
     }
 }
