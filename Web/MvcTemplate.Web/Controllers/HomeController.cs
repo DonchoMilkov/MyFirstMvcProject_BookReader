@@ -1,9 +1,6 @@
 ﻿namespace MvcTemplate.Web.Controllers
 {
-    using System;
-    using System.IO;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
     using MvcTemplate.Common.Mapping;
     using MvcTemplate.Services.Data;

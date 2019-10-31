@@ -7,6 +7,7 @@
     using System.Web.Routing;
 
     using MvcTemplate.Common.Mapping;
+    using MvcTemplate.Data.Models;
     using MvcTemplate.Web.ViewModels.Account;
 
 #pragma warning disable SA1649 // File name must match first type name
