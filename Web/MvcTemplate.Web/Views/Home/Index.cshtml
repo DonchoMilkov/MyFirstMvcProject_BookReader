@@ -3,6 +3,19 @@
     this.ViewBag.Title = "Home Page";
 }
 
+
+<div class="jumbotron" style="background-image: url(https://tapetaposzter.hu/img/49683/3688/3688.jpg?time=1544825485);">
+    <div class="container">
+        <div class="text-white text-center text-wrap py-5 px-4">
+            <h2 class="pt-3 mb-5 font-bold"><strong>ReadIt v1.0</strong></h2>
+            <p class="mx-5 mb-5">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+                optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos. Odit sed qui, dolorum!
+            </p>
+        </div>
+    </div>
+</div>
+
 <ul class="list-group float-left">
     <li class="list-group-item font-weight-bolder">Top Rated Books</li>
     @foreach (var book in Model.TopRatedBooks)
@@ -11,7 +24,13 @@
         <li class="list-group-item">
             <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
             <span class="font-weight-bold">Title:</span> <a href=@book.UrlReview>@book.Title</a> <br />
-            <span class="font-weight-bold">Author:</span> @book.Author <br />
+            <span class="font-weight-bold">Authors:</span>
+            @foreach (var author in book.Authors)
+            {
+               <span>@author.Name</span>  
+               <br />
+            }
+            <br />
             <span class="font-weight-bold">Language:</span> @book.Language <br />
             <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
             <span class="font-weight-bold">Uploaded:</span> @book.CreatedOn.ToShortDateString()
@@ -26,15 +45,19 @@
         <li class="list-group-item">
             <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
             <span class="font-weight-bold">Title:</span> <a href=@book.UrlReview>@book.Title</a> <br />
-            <span class="font-weight-bold">Author:</span> @book.Author <br />
+            <span class="font-weight-bold">Author:</span>
+            @foreach (var author in book.Authors)
+            {
+               <span>@author.Name</span>  
+               <br />
+            }
+            <br />
             <span class="font-weight-bold">Language:</span> @book.Language <br />
             <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
             <span class="font-weight-bold">Uploaded:</span> @book.CreatedOn.ToShortDateString()
         </li>
     }
 </ul>
-
-<a href="/Books/UploadBook">UploadBook</a>
 
 
 

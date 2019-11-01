@@ -219,6 +219,7 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\Home\AuthorViewModel.cs" />
     <Compile Include="ViewModels\Home\BookReadViewModel .cs" />
     <Compile Include="ViewModels\Home\BookViewModel.cs" />
     <Compile Include="ViewModels\Home\BookCategoryViewModel.cs" />

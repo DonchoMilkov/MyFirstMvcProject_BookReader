@@ -1,0 +1,22 @@
+﻿@model MvcTemplate.Web.ViewModels.Home.AllBooksViewModel
+@{
+    var categories = Model.BookCategories;
+    var books = Model.Books;
+    ViewBag.Title = "All Books";
+}
+
+    <div class="card mb-3" style="max-width: 20rem; display:inline-block">
+        <div class="card-header">Categories:</div>
+        <div class="card-body">
+            <div class="bs-component">
+                <div class="list-group">
+                    @foreach (var category in categories)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">
+                            @category.Name
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>

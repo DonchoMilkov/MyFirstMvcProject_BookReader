@@ -1,0 +1,37 @@
+﻿@model MvcTemplate.Web.ViewModels.Home.BookViewModel
+@{
+    ViewBag.Title = "Review";
+}
+
+
+<h1>@Model.Title</h1>
+<h2>By @foreach (var author in Model.Authors)
+{   
+    <span>@author.Name</span>
+}
+    </h2>
+
+<div><img src="#" alt="Cover" /></div>
+<div>
+    <ul>
+        <li>
+            Published on: @Model.CreatedOn
+        </li>
+        <li>
+            Language: @Model.Language
+        </li>
+        <li>
+            Raiting: @Model.Raiting
+        </li>
+        <li>
+            Description: No description
+        </li>
+    </ul>
+</div>
+
+<a href="@Model.Url" class="btn btn-primary">Read</a>
+
+<a href="" class="btn btn-secondary">Add To My Library</a>
+
+
+

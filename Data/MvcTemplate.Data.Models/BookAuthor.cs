@@ -9,7 +9,7 @@
     {
         public BookAuthor()
         {
-            this.Books = new HashSet<Book>();
+            this.BookAuthorBooks = new HashSet<BookAuthorBooks>();
         }
 
         [Key]
@@ -19,7 +19,7 @@
         [StringLength(150)]
         public string Name { get; set; }
 
-        public virtual ICollection<Book> Books { get; set; }
+        public virtual ICollection<BookAuthorBooks> BookAuthorBooks { get; set; }
 
         public bool IsDeleted { get; set; }
 

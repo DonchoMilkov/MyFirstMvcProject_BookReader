@@ -5,7 +5,12 @@
 
     <div>
         <h2>@Model.Title</h2>
-        <h3>@Model.Author</h3>
+            <h3>
+                @foreach (var author in Model.Authors)
+                {
+                    <span>@author.Name</span>
+                }
+            </h3>
         <p>
             @Model.Content
         </p>

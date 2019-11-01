@@ -13,6 +13,7 @@
         {
             this.CreatedOn = DateTime.UtcNow;
             this.ApplicationUserBooks = new HashSet<ApplicationUserBooks>();
+            this.BookAuthorBooks = new HashSet<BookAuthorBooks>();
         }
 
         [Required]
@@ -32,11 +33,9 @@
 
         public int CategoryId { get; set; }
 
-        public int AuthorId { get; set; }
-
         public virtual BookCategory Category { get; set; }
 
-        public virtual BookAuthor Author { get; set; }
+        public virtual ICollection<BookAuthorBooks> BookAuthorBooks { get; set; }
 
         public virtual ICollection<ApplicationUserBooks> ApplicationUserBooks { get; set; }
     }

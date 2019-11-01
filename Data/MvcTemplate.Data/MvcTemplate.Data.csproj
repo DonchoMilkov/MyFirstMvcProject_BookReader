@@ -70,13 +70,9 @@
     <Compile Include="Migrations\201910151255206_BooksAndBooksCategories.Designer.cs">
       <DependentUpon>201910151255206_BooksAndBooksCategories.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910290945230_BookAuthorsAndApplicationUserBooks.cs" />
-    <Compile Include="Migrations\201910290945230_BookAuthorsAndApplicationUserBooks.Designer.cs">
-      <DependentUpon>201910290945230_BookAuthorsAndApplicationUserBooks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910290955421_ApplicationUserBooksDeletable.cs" />
-    <Compile Include="Migrations\201910290955421_ApplicationUserBooksDeletable.Designer.cs">
-      <DependentUpon>201910290955421_ApplicationUserBooksDeletable.cs</DependentUpon>
+    <Compile Include="Migrations\201911011207094_Relations.cs" />
+    <Compile Include="Migrations\201911011207094_Relations.Designer.cs">
+      <DependentUpon>201911011207094_Relations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,11 +107,8 @@
     <EmbeddedResource Include="Migrations\201910151255206_BooksAndBooksCategories.resx">
       <DependentUpon>201910151255206_BooksAndBooksCategories.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910290945230_BookAuthorsAndApplicationUserBooks.resx">
-      <DependentUpon>201910290945230_BookAuthorsAndApplicationUserBooks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910290955421_ApplicationUserBooksDeletable.resx">
-      <DependentUpon>201910290955421_ApplicationUserBooksDeletable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911011207094_Relations.resx">
+      <DependentUpon>201911011207094_Relations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
