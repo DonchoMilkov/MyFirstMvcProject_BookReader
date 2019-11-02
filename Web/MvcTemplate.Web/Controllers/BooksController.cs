@@ -13,16 +13,13 @@
     public class BooksController : BaseController
     {
         private IBookService books;
-        private IUploadBookService uploads;
         private ICategoryService bookCategories;
 
         public BooksController(
             IBookService books,
-            IUploadBookService uploads,
             ICategoryService bookCategories)
         {
             this.books = books;
-            this.uploads = uploads;
             this.bookCategories = bookCategories;
         }
 
@@ -31,21 +28,6 @@
             var book = this.books.GetById(id);
             var viewModel = AutoMapperConfig.Configuration.CreateMapper().Map<BookReadViewModel>(book);
             return this.View(viewModel);
-        }
-
-        [HttpPost]
-        public ActionResult UploadBook(HttpPostedFileBase file)
-        {
-            var uploadStatus = this.uploads.UploadFile(file);
-            this.ViewBag.Message = uploadStatus;
-            return this.View();
-        }
-
-        [HttpGet]
-        [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-        public ActionResult UploadBook()
-        {
-            return this.View();
         }
 
         [AllowAnonymous]

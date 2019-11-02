@@ -1,6 +1,5 @@
 ﻿namespace MvcTemplate.Web.ViewModels.Home
 {
-    using AutoMapper;
     using MvcTemplate.Common.Mapping;
     using MvcTemplate.Data.Models;
 

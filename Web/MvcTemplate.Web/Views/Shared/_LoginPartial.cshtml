@@ -10,7 +10,7 @@
                 @if (this.User.IsInRole(MvcTemplate.Common.GlobalConstants.AdministratorRoleName))
                 {
                     <li class="nav-item active">
-                        @(this.Html.ActionLink("Upload Book", "UploadBook", "Books", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "UploadBook", @class = "nav-link" }))
+                        @(this.Html.ActionLink("Upload Book", "UploadBook", "Upload", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "UploadBook", @class = "nav-link" }))
                     </li>
                 }
                 <li class="nav-item active">

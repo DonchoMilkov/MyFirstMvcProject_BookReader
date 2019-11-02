@@ -207,6 +207,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,7 +221,8 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Home\AuthorViewModel.cs" />
-    <Compile Include="ViewModels\Home\BookReadViewModel .cs" />
+    <Compile Include="ViewModels\Home\BookBasicViewModel.cs" />
+    <Compile Include="ViewModels\Home\BookReadViewModel.cs" />
     <Compile Include="ViewModels\Home\BookViewModel.cs" />
     <Compile Include="ViewModels\Home\BookCategoryViewModel.cs" />
     <Compile Include="ViewModels\Home\AllBooksViewModel.cs" />
@@ -334,7 +336,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Books\ById.cshtml" />
-    <Content Include="Views\Books\UploadBook.cshtml" />
+    <Content Include="Views\Upload\UploadBook.cshtml" />
     <Content Include="Views\Books\Review.cshtml" />
     <Content Include="Views\Books\AllBooks.cshtml" />
   </ItemGroup>
