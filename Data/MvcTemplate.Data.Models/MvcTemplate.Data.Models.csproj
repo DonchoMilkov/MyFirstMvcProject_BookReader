@@ -67,6 +67,9 @@
     <Compile Include="Book.cs" />
     <Compile Include="BookAuthor.cs" />
     <Compile Include="BookCategory.cs" />
+    <Compile Include="BookContent.cs" />
+    <Compile Include="HtmlPagingItem.cs" />
+    <Compile Include="NavigationItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

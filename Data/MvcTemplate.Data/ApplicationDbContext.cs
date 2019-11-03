@@ -22,6 +22,12 @@
 
         public IDbSet<BookAuthor> BookAuthors { get; set; }
 
+        public IDbSet<BookContent> BookContents { get; set; }
+
+        public IDbSet<HtmlPagingItem> HtmlPagingItems { get; set; }
+
+        public IDbSet<NavigationItem> NavigationItems{ get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

@@ -70,9 +70,9 @@
             builder.Register(x => new IdentifierProvider())
                 .As<IIdentifierProvider>()
                 .InstancePerRequest();
-            builder.Register(x => new UploadBookService())
-                .As<IUploadBookService>()
-                .InstancePerRequest();
+            //builder.Register(x => new UploadBookService())
+            //    .As<IUploadBookService>()
+            //    .InstancePerRequest();
 
             builder.RegisterGeneric(typeof(DbRepository<>))
                 .As(typeof(IDbRepository<>))

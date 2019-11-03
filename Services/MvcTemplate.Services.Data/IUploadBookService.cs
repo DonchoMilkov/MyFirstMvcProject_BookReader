@@ -1,4 +1,4 @@
-﻿namespace MvcTemplate.Services.Web
+﻿namespace MvcTemplate.Services.Data
 {
     using System.Web;
 

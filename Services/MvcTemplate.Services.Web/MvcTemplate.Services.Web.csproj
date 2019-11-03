@@ -57,9 +57,7 @@
     <Compile Include="ICacheService.cs" />
     <Compile Include="IdentifierProvider.cs" />
     <Compile Include="IIdentifierProvider.cs" />
-    <Compile Include="IUploadBookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UploadBookService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json">

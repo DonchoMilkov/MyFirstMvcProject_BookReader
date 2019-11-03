@@ -1,4 +1,4 @@
-﻿namespace MvcTemplate.Services.Web
+﻿namespace MvcTemplate.Services.Data
 {
     using System;
     using System.IO;
@@ -6,8 +6,18 @@
 
     public class UploadBookService : IUploadBookService
     {
+        private IFileParserService epubParser;
+
+        public UploadBookService(IFileParserService epubParser)
+        {
+            this.epubParser = epubParser;
+        }
+
         public string UploadFile(HttpPostedFileBase file)
         {
+            // parse file
+            // save
+
             string resultMessage;
 
             if (file != null && file.ContentLength > 0)

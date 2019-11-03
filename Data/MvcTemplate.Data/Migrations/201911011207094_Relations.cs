@@ -1,13 +1,12 @@
 namespace MvcTemplate.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class Relations : DbMigration
     {
         public override void Up()
         {
-            CreateTable(
+            this.CreateTable(
                 "dbo.BookAuthors",
                 c => new
                     {
@@ -17,8 +16,8 @@ namespace MvcTemplate.Data.Migrations
                         DeletedOn = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id);
-            
-            CreateTable(
+
+            this.CreateTable(
                 "dbo.BookAuthorBooks",
                 c => new
                     {
@@ -32,8 +31,8 @@ namespace MvcTemplate.Data.Migrations
                 .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
                 .Index(t => t.BookId)
                 .Index(t => t.AuthorId);
-            
-            CreateTable(
+
+            this.CreateTable(
                 "dbo.ApplicationUserBooks",
                 c => new
                     {
@@ -49,32 +48,32 @@ namespace MvcTemplate.Data.Migrations
                 .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
                 .Index(t => t.BookId)
                 .Index(t => t.ApplicationUserId);
-            
-            AddColumn("dbo.Books", "Language", c => c.String(maxLength: 100));
-            AddColumn("dbo.Books", "Raiting", c => c.Double());
-            AddColumn("dbo.Books", "Cover", c => c.Binary());
-            AlterColumn("dbo.Books", "Title", c => c.String(nullable: false, maxLength: 150));
-            AlterColumn("dbo.BookCategories", "Name", c => c.String(nullable: false, maxLength: 100));
+
+            this.AddColumn("dbo.Books", "Language", c => c.String(maxLength: 100));
+            this.AddColumn("dbo.Books", "Raiting", c => c.Double());
+            this.AddColumn("dbo.Books", "Cover", c => c.Binary());
+            this.AlterColumn("dbo.Books", "Title", c => c.String(nullable: false, maxLength: 150));
+            this.AlterColumn("dbo.BookCategories", "Name", c => c.String(nullable: false, maxLength: 100));
         }
-        
+
         public override void Down()
         {
-            DropForeignKey("dbo.BookAuthorBooks", "BookId", "dbo.Books");
-            DropForeignKey("dbo.ApplicationUserBooks", "BookId", "dbo.Books");
-            DropForeignKey("dbo.ApplicationUserBooks", "ApplicationUserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.BookAuthorBooks", "AuthorId", "dbo.BookAuthors");
-            DropIndex("dbo.ApplicationUserBooks", new[] { "ApplicationUserId" });
-            DropIndex("dbo.ApplicationUserBooks", new[] { "BookId" });
-            DropIndex("dbo.BookAuthorBooks", new[] { "AuthorId" });
-            DropIndex("dbo.BookAuthorBooks", new[] { "BookId" });
-            AlterColumn("dbo.BookCategories", "Name", c => c.String());
-            AlterColumn("dbo.Books", "Title", c => c.String());
-            DropColumn("dbo.Books", "Cover");
-            DropColumn("dbo.Books", "Raiting");
-            DropColumn("dbo.Books", "Language");
-            DropTable("dbo.ApplicationUserBooks");
-            DropTable("dbo.BookAuthorBooks");
-            DropTable("dbo.BookAuthors");
+            this.DropForeignKey("dbo.BookAuthorBooks", "BookId", "dbo.Books");
+            this.DropForeignKey("dbo.ApplicationUserBooks", "BookId", "dbo.Books");
+            this.DropForeignKey("dbo.ApplicationUserBooks", "ApplicationUserId", "dbo.AspNetUsers");
+            this.DropForeignKey("dbo.BookAuthorBooks", "AuthorId", "dbo.BookAuthors");
+            this.DropIndex("dbo.ApplicationUserBooks", new[] { "ApplicationUserId" });
+            this.DropIndex("dbo.ApplicationUserBooks", new[] { "BookId" });
+            this.DropIndex("dbo.BookAuthorBooks", new[] { "AuthorId" });
+            this.DropIndex("dbo.BookAuthorBooks", new[] { "BookId" });
+            this.AlterColumn("dbo.BookCategories", "Name", c => c.String());
+            this.AlterColumn("dbo.Books", "Title", c => c.String());
+            this.DropColumn("dbo.Books", "Cover");
+            this.DropColumn("dbo.Books", "Raiting");
+            this.DropColumn("dbo.Books", "Language");
+            this.DropTable("dbo.ApplicationUserBooks");
+            this.DropTable("dbo.BookAuthorBooks");
+            this.DropTable("dbo.BookAuthors");
         }
     }
 }

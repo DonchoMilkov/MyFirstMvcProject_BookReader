@@ -1,9 +1,10 @@
 ﻿namespace MvcTemplate.Services.Data
 {
+    using MvcTemplate.Data.Models;
+    using VersOne.Epub;
+
     public interface IFileParserService
     {
-        string GetTitle();
-
-
+        Book ParseEpubBook(EpubBook epubBook);
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace MvcTemplate.Web.ViewModels.Home
 {
     using System;
+    using System.Linq;
     using AutoMapper;
     using MvcTemplate.Data.Models;
 
@@ -33,7 +34,7 @@
 
             configuration.CreateMap<Book, BookViewModel>()
                 .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name))
-                .ForMember(x => x.Authors, opt => opt.MapFrom(x => x.BookAuthorBooks));
+                .ForMember(x => x.Authors, opt => opt.MapFrom(x => x.BookAuthorBooks.Select(b => b.Author)));
         }
     }
 }

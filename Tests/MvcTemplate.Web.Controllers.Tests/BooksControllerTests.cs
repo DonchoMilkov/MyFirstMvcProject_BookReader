@@ -30,7 +30,7 @@
                     Category = new BookCategory() { Name = "ffsdads" },
                 });
 
-            var controller = new BooksController(booksServiceMock.Object, new UploadBookService(), categoryServiceMock.Object);
+            var controller = new BooksController(booksServiceMock.Object, categoryServiceMock.Object);
             controller.WithCallTo(x => x.ById("fadasasds"))
                 .ShouldRenderView("ById")
                 .WithModel<BookViewModel>(

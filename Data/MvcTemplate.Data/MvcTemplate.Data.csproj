@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201911011207094_Relations.Designer.cs">
       <DependentUpon>201911011207094_Relations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911031409306_ContentNavigationPages.cs" />
+    <Compile Include="Migrations\201911031409306_ContentNavigationPages.Designer.cs">
+      <DependentUpon>201911031409306_ContentNavigationPages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911011207094_Relations.resx">
       <DependentUpon>201911011207094_Relations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911031409306_ContentNavigationPages.resx">
+      <DependentUpon>201911031409306_ContentNavigationPages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

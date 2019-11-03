@@ -16,48 +16,51 @@
     </div>
 </div>
 
-<ul class="list-group float-left">
-    <li class="list-group-item font-weight-bolder">Top Rated Books</li>
-    @foreach (var book in Model.TopRatedBooks)
-    {
+<div class="container">
+    <ul class="list-group float-left">
+        <li class="list-group-item font-weight-bolder">Top Rated Books</li>
+        @foreach (var book in Model.TopRatedBooks)
+        {
 
-        <li class="list-group-item">
-            <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
-            <span class="font-weight-bold">Title:</span> <a href=@book.UrlReview>@book.Title</a> <br />
-            <span class="font-weight-bold">Authors:</span>
-            @foreach (var author in book.Authors)
-            {
-               <span>@author.Name</span>  
-               <br />
-            }
-            <br />
-            <span class="font-weight-bold">Language:</span> @book.Language <br />
-            <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
-            <span class="font-weight-bold">Uploaded:</span> @book.CreatedOn.ToShortDateString()
-        </li>
-    }
-</ul>
+            <li class="list-group-item">
+                <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
+                <span class="font-weight-bold">Title:</span> <a href=@book.UrlReview>@book.Title</a> <br />
+                <span class="font-weight-bold">Authors:</span>
+                @foreach (var author in book.Authors)
+                {
+                    <span>@author.Name</span>
+                    <br />
+                }
+                <br />
+                <span class="font-weight-bold">Language:</span> @book.Language <br />
+                <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
+                <span class="font-weight-bold">Uploaded:</span> @book.CreatedOn.ToShortDateString()
+            </li>
+        }
+    </ul>
 
-<ul class="list-group float-left">
-    <li class="list-group-item font-weight-bolder">Latest Uploads</li>
-    @foreach (var book in Model.LatestUploadedBooks)
-    {
-        <li class="list-group-item">
-            <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
-            <span class="font-weight-bold">Title:</span> <a href=@book.UrlReview>@book.Title</a> <br />
-            <span class="font-weight-bold">Author:</span>
-            @foreach (var author in book.Authors)
-            {
-               <span>@author.Name</span>  
-               <br />
-            }
-            <br />
-            <span class="font-weight-bold">Language:</span> @book.Language <br />
-            <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
-            <span class="font-weight-bold">Uploaded:</span> @book.CreatedOn.ToShortDateString()
-        </li>
-    }
-</ul>
+    <ul class="list-group float-left">
+        <li class="list-group-item font-weight-bolder">Latest Uploads</li>
+        @foreach (var book in Model.LatestUploadedBooks)
+        {
+            <li class="list-group-item">
+                <span class="font-weight-bold">Cover:</span> <img src="#" alt="SomeImage" /> <br />
+                <span class="font-weight-bold">Title:</span> <a href=@book.UrlReview>@book.Title</a> <br />
+                <span class="font-weight-bold">Author:</span>
+                @foreach (var author in book.Authors)
+                {
+                    <span>@author.Name</span>
+                    <br />
+                }
+                <br />
+                <span class="font-weight-bold">Language:</span> @book.Language <br />
+                <span class="font-weight-bold">Raiting:</span> @book.Raiting <br />
+                <span class="font-weight-bold">Uploaded:</span> @book.CreatedOn.ToShortDateString()
+            </li>
+        }
+    </ul>
+</div>
+
 
 
 
