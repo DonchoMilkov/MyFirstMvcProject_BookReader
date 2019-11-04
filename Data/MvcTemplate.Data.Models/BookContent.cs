@@ -1,9 +1,11 @@
 ﻿namespace MvcTemplate.Data.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
+    using MvcTemplate.Data.Common.Models;
 
-    public class BookContent
+    public class BookContent : IAuditInfo, IDeletableEntity
     {
         public BookContent()
         {
@@ -23,5 +25,14 @@
         public ICollection<HtmlPagingItem> Paging { get; set; }
 
         public ICollection<NavigationItem> Navigation { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
+
     }
 }

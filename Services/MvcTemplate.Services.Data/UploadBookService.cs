@@ -3,19 +3,31 @@
     using System;
     using System.IO;
     using System.Web;
+    using MvcTemplate.Data;
+    using MvcTemplate.Data.Common;
+    using MvcTemplate.Data.Models;
+    using VersOne.Epub;
 
     public class UploadBookService : IUploadBookService
     {
         private IFileParserService epubParser;
+        private IDbRepository<Book> books;
 
-        public UploadBookService(IFileParserService epubParser)
+        public UploadBookService(
+            IFileParserService epubParser,
+            IDbRepository<Book> books)
         {
             this.epubParser = epubParser;
+            this.books = books;
         }
 
         public string UploadFile(HttpPostedFileBase file)
         {
-            // parse file
+            var epubBook = EpubReader.ReadBook(file.InputStream);
+            var book = this.epubParser.ParseEpubBook(epubBook);
+            this.books.Add(book);
+            this.books.Save();
+
             // save
 
             string resultMessage;

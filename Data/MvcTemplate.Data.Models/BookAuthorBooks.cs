@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using MvcTemplate.Data.Common.Models;
 
-    public class BookAuthorBooks : IDeletableEntity
+    public class BookAuthorBooks : IAuditInfo, IDeletableEntity
     {
         [Key]
         [Column(Order = 0)]
@@ -22,5 +22,9 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
     }
 }

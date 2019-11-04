@@ -36,6 +36,7 @@
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System" />
@@ -52,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorService.cs" />
     <Compile Include="BookService.cs" />
     <Compile Include="CategoryService.cs" />
     <Compile Include="Common\BaseDataService{T}.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="Common\Contracts\IBaseDataService{T}.cs" />
     <Compile Include="Common\Contracts\IBaseDataWithCreatorService{T}.cs" />
     <Compile Include="EpubFileParserService.cs" />
+    <Compile Include="IAuthorService.cs" />
     <Compile Include="IBookService.cs" />
     <Compile Include="ICategoryService.cs" />
     <Compile Include="IFileParserService.cs" />
