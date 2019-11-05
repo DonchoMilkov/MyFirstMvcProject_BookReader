@@ -15,7 +15,7 @@ namespace MvcTemplate.Web
         public void Configuration(IAppBuilder app)
         {
             this.ConfigureAuth(app);
-            //this.CreateRolesandUsers();
+            this.CreateRolesandUsers();
         }
 
         private void CreateRolesandUsers()

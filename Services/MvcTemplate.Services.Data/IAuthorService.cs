@@ -4,6 +4,6 @@
 
     public interface IAuthorService
     {
-        BookAuthor EnsureAuthor(string name, Book book);
+        BookAuthor EnsureAuthor(string name);
     }
 }

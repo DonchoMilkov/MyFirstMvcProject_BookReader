@@ -18,8 +18,6 @@
         [StringLength(150)]
         public string Title { get; set; }
 
-        public int BookContentId { get; set; }
-
         public virtual BookContent BookContent { get; set; }
 
         [DefaultValue("English")]

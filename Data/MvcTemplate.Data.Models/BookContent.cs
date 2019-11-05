@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using MvcTemplate.Data.Common.Models;
 
@@ -13,6 +14,7 @@
             this.Navigation = new HashSet<NavigationItem>();
         }
 
+        [Key]
         [ForeignKey("Book")]
         public int Id { get; set; }
 
@@ -22,9 +24,9 @@
 
         public virtual Book Book { get; set; }
 
-        public ICollection<HtmlPagingItem> Paging { get; set; }
+        public virtual ICollection<HtmlPagingItem> Paging { get; set; }
 
-        public ICollection<NavigationItem> Navigation { get; set; }
+        public virtual ICollection<NavigationItem> Navigation { get; set; }
 
         public DateTime CreatedOn { get; set; }
 

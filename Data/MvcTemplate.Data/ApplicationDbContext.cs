@@ -22,6 +22,8 @@
 
         public IDbSet<BookAuthor> BookAuthors { get; set; }
 
+        public IDbSet<BookAuthorBooks> BookAuthorBooks { get; set; }
+
         public IDbSet<BookContent> BookContents { get; set; }
 
         public IDbSet<HtmlPagingItem> HtmlPagingItems { get; set; }

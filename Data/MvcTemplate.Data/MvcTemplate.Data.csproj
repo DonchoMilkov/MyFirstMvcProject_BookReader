@@ -74,21 +74,9 @@
     <Compile Include="Migrations\201911011207094_Relations.Designer.cs">
       <DependentUpon>201911011207094_Relations.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911031409306_ContentNavigationPages.cs" />
-    <Compile Include="Migrations\201911031409306_ContentNavigationPages.Designer.cs">
-      <DependentUpon>201911031409306_ContentNavigationPages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911040928570_IAuditInfoContent.cs" />
-    <Compile Include="Migrations\201911040928570_IAuditInfoContent.Designer.cs">
-      <DependentUpon>201911040928570_IAuditInfoContent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911041349004_IAuditInfoIDeletableEntities.cs" />
-    <Compile Include="Migrations\201911041349004_IAuditInfoIDeletableEntities.Designer.cs">
-      <DependentUpon>201911041349004_IAuditInfoIDeletableEntities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911041417015_IAuditInfoIDeletableEntities1.cs" />
-    <Compile Include="Migrations\201911041417015_IAuditInfoIDeletableEntities1.Designer.cs">
-      <DependentUpon>201911041417015_IAuditInfoIDeletableEntities1.cs</DependentUpon>
+    <Compile Include="Migrations\201911051108256_BookContentArchitecture.cs" />
+    <Compile Include="Migrations\201911051108256_BookContentArchitecture.Designer.cs">
+      <DependentUpon>201911051108256_BookContentArchitecture.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,17 +114,8 @@
     <EmbeddedResource Include="Migrations\201911011207094_Relations.resx">
       <DependentUpon>201911011207094_Relations.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911031409306_ContentNavigationPages.resx">
-      <DependentUpon>201911031409306_ContentNavigationPages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911040928570_IAuditInfoContent.resx">
-      <DependentUpon>201911040928570_IAuditInfoContent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911041349004_IAuditInfoIDeletableEntities.resx">
-      <DependentUpon>201911041349004_IAuditInfoIDeletableEntities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911041417015_IAuditInfoIDeletableEntities1.resx">
-      <DependentUpon>201911041417015_IAuditInfoIDeletableEntities1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911051108256_BookContentArchitecture.resx">
+      <DependentUpon>201911051108256_BookContentArchitecture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

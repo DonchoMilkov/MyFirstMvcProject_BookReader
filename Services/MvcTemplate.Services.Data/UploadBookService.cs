@@ -11,22 +11,17 @@
     public class UploadBookService : IUploadBookService
     {
         private IFileParserService epubParser;
-        private IDbRepository<Book> books;
 
         public UploadBookService(
-            IFileParserService epubParser,
-            IDbRepository<Book> books)
+            IFileParserService epubParser)
         {
             this.epubParser = epubParser;
-            this.books = books;
         }
 
         public string UploadFile(HttpPostedFileBase file)
         {
             var epubBook = EpubReader.ReadBook(file.InputStream);
             var book = this.epubParser.ParseEpubBook(epubBook);
-            this.books.Add(book);
-            this.books.Save();
 
             // save
 

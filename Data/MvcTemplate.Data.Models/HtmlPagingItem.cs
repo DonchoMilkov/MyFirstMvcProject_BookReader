@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using MvcTemplate.Data.Common.Models;
 
 namespace MvcTemplate.Data.Models
@@ -11,13 +13,9 @@ namespace MvcTemplate.Data.Models
 
         public string HtmlContent { get; set; }
 
-        public int NavigationItemId { get; set; }
-
-        public int BookContentId { get; set; }
-
         public virtual BookContent BookContent { get; set; }
 
-        public virtual NavigationItem NavigationItem { get; set; }
+        public virtual NavigationItem Navigation { get; set; }
 
         public bool IsDeleted { get; set; }
 

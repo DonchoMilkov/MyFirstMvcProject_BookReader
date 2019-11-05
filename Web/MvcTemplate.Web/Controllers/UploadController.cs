@@ -4,6 +4,7 @@
     using System.Web;
     using System.Web.Mvc;
     using MvcTemplate.Common;
+    using MvcTemplate.Data.Models;
     using MvcTemplate.Services.Data;
     using VersOne.Epub;
 
@@ -35,6 +36,9 @@
 
         public ActionResult Test()
         {
+            var testBook = new Book();
+            testBook.Title = "TestBook";
+            var content = new BookContent();
             string view = string.Empty;
             string path = @"C:\Users\donch\Desktop\The-Metronome.epub";
             EpubBook epubBook = EpubReader.ReadBook(path);

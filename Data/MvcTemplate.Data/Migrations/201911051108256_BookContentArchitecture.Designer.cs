@@ -7,13 +7,13 @@ namespace MvcTemplate.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class IAuditInfoIDeletableEntities1 : IMigrationMetadata
+    public sealed partial class BookContentArchitecture : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(IAuditInfoIDeletableEntities1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(BookContentArchitecture));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911041417015_IAuditInfoIDeletableEntities1"; }
+            get { return "201911051108256_BookContentArchitecture"; }
         }
         
         string IMigrationMetadata.Source
