@@ -16,7 +16,7 @@
 
         [Key]
         [ForeignKey("Book")]
-        public int Id { get; set; }
+        public int BookId { get; set; }
 
         public string StyleSheet { get; set; }
 

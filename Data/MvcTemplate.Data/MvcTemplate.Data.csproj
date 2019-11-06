@@ -74,9 +74,9 @@
     <Compile Include="Migrations\201911011207094_Relations.Designer.cs">
       <DependentUpon>201911011207094_Relations.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911051108256_BookContentArchitecture.cs" />
-    <Compile Include="Migrations\201911051108256_BookContentArchitecture.Designer.cs">
-      <DependentUpon>201911051108256_BookContentArchitecture.cs</DependentUpon>
+    <Compile Include="Migrations\201911061012515_BookContentPagingNavigation.cs" />
+    <Compile Include="Migrations\201911061012515_BookContentPagingNavigation.Designer.cs">
+      <DependentUpon>201911061012515_BookContentPagingNavigation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,8 +114,8 @@
     <EmbeddedResource Include="Migrations\201911011207094_Relations.resx">
       <DependentUpon>201911011207094_Relations.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911051108256_BookContentArchitecture.resx">
-      <DependentUpon>201911051108256_BookContentArchitecture.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911061012515_BookContentPagingNavigation.resx">
+      <DependentUpon>201911061012515_BookContentPagingNavigation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -7,16 +7,13 @@
 
     public class NavigationItem : IAuditInfo, IDeletableEntity
     {
-
         [Key]
         [ForeignKey("HtmlPagingItem")]
-        public int Id { get; set; }
-
         public int HtmlPagingItemId { get; set; }
 
-        public int BookContentId { get; set; }
-
         public string Chapter { get; set; }
+
+        public int BookContentBookId { get; set; }
 
         public virtual BookContent BookContent { get; set; }
 

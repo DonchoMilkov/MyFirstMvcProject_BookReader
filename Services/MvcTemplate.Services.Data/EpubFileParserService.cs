@@ -35,23 +35,21 @@
 
         public Book ParseEpubBook(EpubBook epubBook)
         {
-
-            var author1 = this.authors.EnsureAuthor("MyAuthor12");
-
-            var author2 = this.authors.EnsureAuthor("MyAuthor24");
-
             var category = new BookCategory()
             {
-                Name = "MyCategory",
+                Name = "нова категория",
             };
 
-            var content = new BookContent();
+            this.categories.Add(category);
+
+            var author1 = this.authors.EnsureAuthor("нов пешо");
+
+            var author2 = this.authors.EnsureAuthor("нов гошо");
 
             var book = new Book()
             {
+                Title = "нова книга",
                 Category = category,
-                Title = "MyBook",
-                BookContent = content,
             };
 
             var bookAuthorBooks1 = new BookAuthorBooks()
@@ -69,10 +67,45 @@
             book.BookAuthorBooks.Add(bookAuthorBooks1);
             book.BookAuthorBooks.Add(bookAuthorBooks2);
 
-            this.categories.Add(category);
-            this.categories.Save();
+            var content = new BookContent();
+            content.Book = book;
+
+            book.BookContent = content;
             this.books.Add(book);
-            this.books.Save();
+
+            content.BookId = book.Id;
+            this.contents.Add(content);
+
+            var pagings = new List<HtmlPagingItem>();
+            for (int i = 0; i < 10; i++)
+            {
+                var key = string.Format("Стр->{0:00}", i);
+                var htmlContent = new string('ж', i * 10);
+                var newPage = new HtmlPagingItem()
+                {
+                    PageKey = key,
+                    HtmlContent = htmlContent,
+                    BookContent = content,
+                };
+                pagings.Add(newPage);
+                this.pagingItems.Add(newPage);
+                this.pagingItems.Save();
+            }
+
+            for (int i = 1, j = 2; i <= 3; i++, j += 2)
+            {
+                var chapter = string.Format("Гл. {0}", i);
+                var htmlItem = pagings.Find(x => x.PageKey == string.Format("Стр->{0:00}", j));
+                var newNavItem = new NavigationItem()
+                {
+                    HtmlPagingItemId = htmlItem.Id,
+                    Chapter = chapter,
+                    HtmlPagingItem = htmlItem,
+                    BookContent = content,
+                };
+                this.navigationItems.Add(newNavItem);
+                this.navigationItems.Save();
+            }
 
             return book;
         }
