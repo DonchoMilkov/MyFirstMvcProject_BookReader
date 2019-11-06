@@ -35,87 +35,30 @@
 
         public Book ParseEpubBook(EpubBook epubBook)
         {
+            var authors = this.ParseAuthorList(epubBook);
+
+            var book = new Book();
+
+            foreach (var author in authors)
+            {
+                var bookAuthorBooks = new BookAuthorBooks()
+                {
+                    Author = author,
+                    Book = book,
+                };
+                book.BookAuthorBooks.Add(bookAuthorBooks);
+            }
+
             var category = new BookCategory()
             {
                 Name = "нова категория",
             };
-
+            book.Category = category;
             this.categories.Add(category);
 
-            var author1 = this.authors.EnsureAuthor("нов пешо");
+            this.ParseTitle(epubBook, book);
 
-            var author2 = this.authors.EnsureAuthor("нов гошо");
-
-            var book = new Book()
-            {
-                Title = "нова книга",
-                Category = category,
-            };
-
-            var bookAuthorBooks1 = new BookAuthorBooks()
-            {
-                Author = author1,
-                Book = book,
-            };
-
-            var bookAuthorBooks2 = new BookAuthorBooks()
-            {
-                Author = author2,
-                Book = book,
-            };
-
-            book.BookAuthorBooks.Add(bookAuthorBooks1);
-            book.BookAuthorBooks.Add(bookAuthorBooks2);
-
-            var content = new BookContent();
-            content.Book = book;
-
-            book.BookContent = content;
-            this.books.Add(book);
-
-            content.BookId = book.Id;
-            this.contents.Add(content);
-
-            var pagings = new List<HtmlPagingItem>();
-            for (int i = 0; i < 10; i++)
-            {
-                var key = string.Format("Стр->{0:00}", i);
-                var htmlContent = new string('ж', i * 10);
-                var newPage = new HtmlPagingItem()
-                {
-                    PageKey = key,
-                    HtmlContent = htmlContent,
-                    BookContent = content,
-                };
-                pagings.Add(newPage);
-                this.pagingItems.Add(newPage);
-                this.pagingItems.Save();
-            }
-
-            for (int i = 1, j = 2; i <= 3; i++, j += 2)
-            {
-                var chapter = string.Format("Гл. {0}", i);
-                var htmlItem = pagings.Find(x => x.PageKey == string.Format("Стр->{0:00}", j));
-                var newNavItem = new NavigationItem()
-                {
-                    HtmlPagingItemId = htmlItem.Id,
-                    Chapter = chapter,
-                    HtmlPagingItem = htmlItem,
-                    BookContent = content,
-                };
-                this.navigationItems.Add(newNavItem);
-                this.navigationItems.Save();
-            }
-
-            return book;
-        }
-    }
-}
-            /*this.ParseTitle(epubBook, book);
-
-            this.ParseAuthorList(epubBook, book);
-
-            this.ParseCoverImage(epubBook, book);
+            // this.ParseCoverImage(epubBook, book);
 
             this.ParseContent(epubBook, book);
 
@@ -128,7 +71,7 @@
             return;
         }
 
-        private void ParseAuthorList(EpubBook epubBook, Book book)
+        private ICollection<BookAuthor> ParseAuthorList(EpubBook epubBook)
         {
             List<string> authorList = new List<string>();
             if (epubBook.AuthorList != null)
@@ -138,69 +81,73 @@
             else
             {
                 var separators = new char[] { ',' };
-                var authors = epubBook.Author.Split(separators, System.StringSplitOptions.RemoveEmptyEntries);
+                var authors = epubBook.Author.Split(separators, StringSplitOptions.RemoveEmptyEntries);
                 authorList.AddRange(authors);
             }
 
+            var bookAuthorList = new List<BookAuthor>();
             foreach (var author in authorList)
             {
-                var bookAuthor = this.authors.EnsureAuthor(author, book);
+                bookAuthorList.Add(this.authors.EnsureAuthor(author));
             }
 
-            return;
-        }
-
-        private void ParseCoverImage(EpubBook epubBook, Book book)
-        {
-            if (epubBook.CoverImage != null)
-            {
-                book.Cover = epubBook.CoverImage;
-            }
-
-            return;
+            return bookAuthorList;
         }
 
         private void ParseContent(EpubBook epubBook, Book book)
         {
-            //TODO:            Clean code fix bugs
-
-            var epubContent = epubBook.Content;
             var content = new BookContent();
+            content.Book = book;
 
-            //content.StyleSheet = string.Join(Environment.NewLine, epubContent.Css.Values);
+            book.BookContent = content;
+            this.books.Add(book);
 
-            var epubPages = epubBook.Content.Html;
-            foreach (var epubPage in epubPages)
+            content.BookId = book.Id;
+            this.contents.Add(content);
+
+            var pagings = new List<HtmlPagingItem>();
+            foreach (var item in epubBook.Content.Html)
             {
-                var newPage = new HtmlPagingItem() { PageKey = epubPage.Key, HtmlContent = epubPage.Value.Content };
+                var key = item.Key.ToLower().Trim();
+                var htmlContent = item.Value.Content;
+                var newPage = new HtmlPagingItem()
+                {
+                    PageKey = key,
+                    HtmlContent = htmlContent,
+                    BookContent = content,
+                };
+                pagings.Add(newPage);
                 this.pagingItems.Add(newPage);
-                content.Paging.Add(newPage);
+                this.pagingItems.Save();
             }
 
-            this.contents.Add(content);
-            this.contents.Save();
-            this.pagingItems.Save();
-
-            //var epubNavigation = epubBook.Navigation;
-            //foreach (var epubNavItem in epubNavigation)
-            //{
-            //    var newNavItem = new NavigationItem();
-            //    newNavItem.Chapter = epubNavItem.Title;
-            //    newNavItem.HtmlPagingItem = this.pagingItems.All().First(x => x.PageKey == epubNavItem.Link.ContentFileName);
-            //    this.navigationItems.Add(newNavItem);
-            //    content.Navigation.Add(newNavItem);
-            //}
-
-            //this.navigationItems.Save();
-
-            //this.contents.Add(content);
-
-            //book.BookContent = content;
-
-            //this.contents.Save();
-
-            return;
+            foreach (var navItem in epubBook.Navigation)
+            {
+                var chapter = navItem.Title;
+                var navKey = navItem.Link.ContentFileName.ToLower().Trim();
+                var htmlItem = pagings.Find(x => x.PageKey == navKey);
+                var newNavItem = new NavigationItem()
+                {
+                    HtmlPagingItemId = htmlItem.Id,
+                    Chapter = chapter,
+                    HtmlPagingItem = htmlItem,
+                    BookContent = content,
+                };
+                this.navigationItems.Add(newNavItem);
+                this.navigationItems.Save();
+            }
         }
+
+        // private void ParseCoverImage(EpubBook epubBook, Book book)
+        // {
+        //    if (epubBook.CoverImage != null)
+        //    {
+        //        book.Cover = epubBook.CoverImage;
+        //    }
+
+        // return;
+        // }
+
+        // content.StyleSheet = string.Join(Environment.NewLine, epubContent.Css.Values);
     }
 }
-*/
