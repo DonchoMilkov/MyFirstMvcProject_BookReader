@@ -56,6 +56,7 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult GetBookCoverImage(string id)
         {
             var book = this.books.GetById(id);

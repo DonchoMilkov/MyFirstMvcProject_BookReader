@@ -24,8 +24,6 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public byte[] Cover { get; set; }
-
         public string UrlReading
         {
             get
@@ -41,6 +39,15 @@
                 return $"/Books/Review/{this.EncodedId}";
             }
         }
+
+        public string UrlBookCover
+        {
+            get
+            {
+                return $"/Books/GetBookCoverImage/{this.EncodedId}";
+            }
+        }
+
 
         public string EncodedId
         {
