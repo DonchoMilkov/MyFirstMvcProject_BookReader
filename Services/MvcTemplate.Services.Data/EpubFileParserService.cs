@@ -58,7 +58,7 @@
 
             this.ParseTitle(epubBook, book);
 
-            // this.ParseCoverImage(epubBook, book);
+            this.ParseCoverImage(epubBook, book);
 
             this.ParseContent(epubBook, book);
 
@@ -98,6 +98,7 @@
         {
             var content = new BookContent();
             content.Book = book;
+            content.StyleSheet = string.Join(Environment.NewLine, epubBook.Content.Css.Values);
 
             book.BookContent = content;
             this.books.Add(book);
@@ -138,16 +139,15 @@
             }
         }
 
-        // private void ParseCoverImage(EpubBook epubBook, Book book)
-        // {
-        //    if (epubBook.CoverImage != null)
-        //    {
-        //        book.Cover = epubBook.CoverImage;
-        //    }
+        private void ParseCoverImage(EpubBook epubBook, Book book)
+        {
+            if (epubBook.CoverImage != null)
+            {
+                book.Cover = epubBook.CoverImage;
+            }
 
-        // return;
-        // }
+            return;
+        }
 
-        // content.StyleSheet = string.Join(Environment.NewLine, epubContent.Css.Values);
     }
 }

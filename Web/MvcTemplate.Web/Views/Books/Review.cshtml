@@ -5,13 +5,14 @@
 
 
 <h1>@Model.Title</h1>
-<h2>By @foreach (var author in Model.Authors)
-{   
-    <span>@author.Name</span>
-}
-    </h2>
-
-<div><img src="#" alt="Cover" /></div>
+<h2>
+    By @foreach (var author in Model.Authors)
+    {
+        <span>@author.Name</span>
+    }
+</h2>
+<div><img src='/Books/GetBookCoverImage/@Model.EncodedId' alt='CoverImage' /></div>
+@*<div><img src="data:image/jpg;base64,@(Html.Raw(Convert.ToBase64String(Model.Cover)))" alt="CoverImage" /></div>*@
 <div>
     <ul>
         <li>

@@ -5,6 +5,7 @@
     using System.Web.Mvc;
     using MvcTemplate.Common;
     using MvcTemplate.Common.Mapping;
+    using MvcTemplate.Data.Models;
     using MvcTemplate.Services.Data;
     using MvcTemplate.Services.Web;
     using MvcTemplate.Web.ViewModels.Home;
@@ -52,6 +53,22 @@
             };
 
             return this.View(viewModel);
+        }
+
+        [HttpGet]
+        public ActionResult GetBookCoverImage(string id)
+        {
+            var book = this.books.GetById(id);
+            var bookCover = book.Cover;
+            var contentType = "image/jpeg";
+            if (bookCover != null)
+            {
+                return this.File(bookCover, contentType);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

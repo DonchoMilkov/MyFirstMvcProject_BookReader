@@ -20,8 +20,6 @@
 
         public string StyleSheet { get; set; }
 
-        public string StylePage { get; set; }
-
         public virtual Book Book { get; set; }
 
         public virtual ICollection<HtmlPagingItem> Paging { get; set; }
