@@ -1,18 +1,44 @@
-﻿@model MvcTemplate.Web.ViewModels.Home.BookReadViewModel
+﻿@model MvcTemplate.Web.ViewModels.Home.ReadViewModel
 @{
     ViewBag.Title = "ById";
+    var book = Model.Book;
+    var currntPage = Model.Page;
 }
+@using X.PagedList.Mvc;
+@using X.PagedList;
 
+<!-- import the included stylesheet for some (very basic) default styling -->
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<div class="container">
     <div>
-        <h2>@Model.Title</h2>
-            <h3>
-                @foreach (var author in Model.Authors)
-                {
-                    <span>@author.Name</span>
-                }
-            </h3>
-        <p>
-            @Model.Content
-        </p>
+        <h5>@book.Title</h5>
+        <h6>
+            @foreach (var author in book.Authors)
+            {
+                <span>@author.Name</span>
+            }
+        </h6>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group table-of-contents">
+                    @foreach (var navItem in book.BookContent.Navigation)
+                    {
+                        <a class="list-group-item" href="#navbar">@navItem.Chapter</a>
+                    }
+                </div>
+            </div>
+            <div class="col-md-9">
+                <p>
+                    @Html.Raw(book.BookContent.StyleSheet)
+                    @Html.Raw(currntPage.HtmlContent)
+
+                    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("ById", new { id = @book.EncodedId,  page }))
+                </p>
+            </div>
+        </div>
     </div>
+</div>
+
 

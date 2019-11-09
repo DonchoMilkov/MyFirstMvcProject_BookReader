@@ -54,6 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthorService.cs" />
+    <Compile Include="ContentParseService.cs" />
+    <Compile Include="IContentParseService.cs" />
+    <Compile Include="IPageService.cs" />
+    <Compile Include="PageService.cs" />
     <Compile Include="BookService.cs" />
     <Compile Include="CategoryService.cs" />
     <Compile Include="Common\BaseDataService{T}.cs" />

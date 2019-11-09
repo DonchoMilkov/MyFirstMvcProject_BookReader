@@ -14,7 +14,7 @@
             var routeCollection = new RouteCollection();
             const string url = "/Book/MTQuMzQyMzM0MjM0";
             RouteConfig.RegisterRoutes(routeCollection);
-            routeCollection.ShouldMap(url).To<BooksController>(c => c.ById("MTQuMzQyMzM0MjM0"));
+            routeCollection.ShouldMap(url).To<BooksController>(c => c.ById("MTQuMzQyMzM0MjM0", 1));
         }
     }
 }

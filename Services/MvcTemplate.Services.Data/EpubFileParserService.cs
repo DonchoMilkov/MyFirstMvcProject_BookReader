@@ -98,7 +98,11 @@
         {
             var content = new BookContent();
             content.Book = book;
-            content.StyleSheet = string.Join(Environment.NewLine, epubBook.Content.Css.Values);
+            foreach (var css in epubBook.Content.Css.Values)
+            {
+                content.StyleSheet += css.Content + Environment.NewLine;
+            }
+            content.StyleSheet = "<style>" + content.StyleSheet + "</style>";
 
             book.BookContent = content;
             this.books.Add(book);
@@ -110,7 +114,29 @@
             foreach (var item in epubBook.Content.Html)
             {
                 var key = item.Key.ToLower().Trim();
-                var htmlContent = item.Value.Content;
+                string htmlContent;
+
+                string inputHtml = item.Value.Content;
+
+                string[] bodyTags = { "<body", "/body>" };
+
+                var piecesHtml = inputHtml.Split(bodyTags, StringSplitOptions.RemoveEmptyEntries);
+
+                string keyPart;
+
+                if (piecesHtml[1] != null)
+                {
+                    keyPart = piecesHtml[1];
+                }
+                else
+                {
+                    keyPart = piecesHtml[0];
+                }
+
+                string resultHtml = string.Format("{0}{1}{2}", "<div", keyPart, "</div>");
+
+                htmlContent = resultHtml;
+
                 var newPage = new HtmlPagingItem()
                 {
                     PageKey = key,
@@ -148,6 +174,5 @@
 
             return;
         }
-
     }
 }

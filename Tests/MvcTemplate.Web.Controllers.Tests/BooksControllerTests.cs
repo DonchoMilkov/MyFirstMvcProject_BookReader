@@ -22,6 +22,8 @@
             var booksServiceMock = new Mock<IBookService>();
 
             var categoryServiceMock = new Mock<ICategoryService>();
+
+            var pageServiceMock = new Mock<IPageService>();
             booksServiceMock
                 .Setup(x => x.GetById(It.IsAny<string>()))
                 .Returns(new Book()
@@ -30,8 +32,8 @@
                     Category = new BookCategory() { Name = "ffsdads" },
                 });
 
-            var controller = new BooksController(booksServiceMock.Object, categoryServiceMock.Object);
-            controller.WithCallTo(x => x.ById("fadasasds"))
+            var controller = new BooksController(booksServiceMock.Object, categoryServiceMock.Object, pageServiceMock.Object);
+            controller.WithCallTo(x => x.ById("fadasasds", 1))
                 .ShouldRenderView("ById")
                 .WithModel<BookViewModel>(
                 viewModel =>
