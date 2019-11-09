@@ -6,5 +6,7 @@
     public interface ICategoryService
     {
         IQueryable<BookCategory> GetAll();
+
+        BookCategory EnsureCategory(string categoryName);
     }
 }

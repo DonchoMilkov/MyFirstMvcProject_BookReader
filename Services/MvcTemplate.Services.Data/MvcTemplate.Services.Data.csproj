@@ -55,8 +55,8 @@
   <ItemGroup>
     <Compile Include="AuthorService.cs" />
     <Compile Include="ContentParseService.cs" />
-    <Compile Include="IContentParseService.cs" />
-    <Compile Include="IPageService.cs" />
+    <Compile Include="Contracts\IContentParseService.cs" />
+    <Compile Include="Contracts\IPageService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="BookService.cs" />
     <Compile Include="CategoryService.cs" />
@@ -65,11 +65,11 @@
     <Compile Include="Common\Contracts\IBaseDataService{T}.cs" />
     <Compile Include="Common\Contracts\IBaseDataWithCreatorService{T}.cs" />
     <Compile Include="EpubFileParserService.cs" />
-    <Compile Include="IAuthorService.cs" />
-    <Compile Include="IBookService.cs" />
-    <Compile Include="ICategoryService.cs" />
-    <Compile Include="IFileParserService.cs" />
-    <Compile Include="IUploadBookService.cs" />
+    <Compile Include="Contracts\IAuthorService.cs" />
+    <Compile Include="Contracts\IBookService.cs" />
+    <Compile Include="Contracts\ICategoryService.cs" />
+    <Compile Include="Contracts\IFileParserService.cs" />
+    <Compile Include="Contracts\IUploadBookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UploadBookService.cs" />
   </ItemGroup>
