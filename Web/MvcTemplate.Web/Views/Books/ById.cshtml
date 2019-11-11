@@ -25,7 +25,7 @@
                 <div class="list-group table-of-contents">
                     @foreach (var navItem in book.BookContent.Navigation)
                     {
-                        <a class="list-group-item" href="#navbar">@navItem.Chapter</a>
+                        <a class="list-group-item" href="@Url.Action("ByChapter", new { bookId = book.EncodedId, chapter = navItem.Chapter})">@navItem.Chapter</a>
                     }
                 </div>
             </div>

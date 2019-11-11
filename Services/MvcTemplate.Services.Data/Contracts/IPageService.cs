@@ -6,5 +6,7 @@
     public interface IPageService
     {
         IEnumerable<HtmlPagingItem> GetAllPages(int bookId);
+
+        int ChapterFirstPage(Book book, string chapter);
     }
 }

@@ -20,7 +20,7 @@
             var mostRatedBooks =
                 this.Cache.Get("TopBooks", () => this.books.GetTopBooks(10).To<BookViewModel>().ToList(), 10);
             var latestUploadedBooks =
-                this.Cache.Get("LatestUploadedBooks", () => this.books.GetLatestBooks(10).To<BookViewModel>().ToList(), 5 * 60);
+                this.Cache.Get("LatestUploadedBooks", () => this.books.GetLatestBooks(10).To<BookViewModel>().ToList(), 10);
 
             var viewModel = new IndexViewModel
             {

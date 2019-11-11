@@ -24,7 +24,7 @@
             this.pages = pages;
         }
 
-        public ActionResult ById(string id, int? page)
+        public ActionResult ById(string id, int? page, int? absolutePageNumber)
         {
             var book = this.books.GetById(id);
             var bookViewModel = AutoMapperConfig.Configuration.CreateMapper().Map<BookReadViewModel>(book);
@@ -38,9 +38,14 @@
 
             var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
             var onePageOfProducts = products.ToPagedList(pageNumber, 1); // will only contain 25 products max because of the pageSize
-
-
-            viewModel.Page = allPages.First(x => x.Id == pageNumber);
+            if (absolutePageNumber != null)
+            {
+                viewModel.Page = allPages.First(x => x.Id == absolutePageNumber);
+            }
+            else
+            {
+                viewModel.Page = allPages.First(x => x.Id == firstPageId + pageNumber - 1);
+            }
 
             this.ViewBag.OnePageOfProducts = onePageOfProducts;
 
@@ -87,5 +92,15 @@
                 return null;
             }
         }
+
+        public ActionResult ByChapter(string bookId, string chapter)
+        {
+            var book = this.books.GetById(bookId);
+
+            int navPage = this.pages.ChapterFirstPage(book, chapter);
+
+            return this.RedirectToAction("ById", new { id = bookId, absolutePageNumber = navPage });
+        }
+
     }
 }
