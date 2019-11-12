@@ -4,6 +4,6 @@
 
     public interface IUploadBookService
     {
-        string UploadFile(HttpPostedFileBase file);
+        string UploadFile(HttpPostedFileBase file, string category, string language);
     }
 }

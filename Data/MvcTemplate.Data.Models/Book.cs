@@ -30,6 +30,8 @@
 
         public byte[] Cover { get; set; }
 
+        public byte[] BackUpFile { get; set; }
+
         public int CategoryId { get; set; }
 
         public virtual BookCategory Category { get; set; }

@@ -2,40 +2,31 @@
 {
     using System;
     using System.Collections.Generic;
-    using MvcTemplate.Data.Common;
     using MvcTemplate.Data.Models;
     using VersOne.Epub;
 
     public class EpubFileParserService : IFileParserService
     {
-        private IDbRepository<Book> books;
         private IAuthorService authors;
         private IContentParseService contents;
-        private ICategoryService categories;
 
         public EpubFileParserService(
-            IDbRepository<Book> books,
             IAuthorService authors,
-            IContentParseService contents,
-            ICategoryService categories)
+            IContentParseService contents)
         {
-            this.books = books;
             this.authors = authors;
-            this.categories = categories;
             this.contents = contents;
         }
 
-        public Book ParseEpubBook(EpubBook epubBook)
+        public Book ParseEpubBook(EpubBook epubBook, BookCategory category)
         {
             var book = new Book();
 
             this.ParseAuthorList(epubBook, book);
-            this.ParseCategory("нова категория", book);
             this.ParseTitle(epubBook, book);
             this.ParseCoverImage(epubBook, book);
+            book.Category = category;
             this.contents.ParseContent(epubBook, book);
-
-            this.books.Add(book);
 
             return book;
         }
@@ -71,11 +62,6 @@
             }
 
             return bookAuthorList;
-        }
-
-        private void ParseCategory(string categoryName, Book book)
-        {
-            book.Category = this.categories.EnsureCategory(categoryName);
         }
 
         private void ParseTitle(EpubBook epubBook, Book book)

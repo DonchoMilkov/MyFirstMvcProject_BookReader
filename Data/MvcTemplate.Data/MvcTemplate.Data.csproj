@@ -82,6 +82,10 @@
     <Compile Include="Migrations\201911061237434_BookContentStyleSheet.Designer.cs">
       <DependentUpon>201911061237434_BookContentStyleSheet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911121250345_BackUpBookFile.cs" />
+    <Compile Include="Migrations\201911121250345_BackUpBookFile.Designer.cs">
+      <DependentUpon>201911121250345_BackUpBookFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -123,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911061237434_BookContentStyleSheet.resx">
       <DependentUpon>201911061237434_BookContentStyleSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911121250345_BackUpBookFile.resx">
+      <DependentUpon>201911121250345_BackUpBookFile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

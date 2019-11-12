@@ -1,12 +1,9 @@
 ﻿namespace MvcTemplate.Web.Controllers
 {
-    using System;
     using System.Web;
     using System.Web.Mvc;
     using MvcTemplate.Common;
-    using MvcTemplate.Data.Models;
     using MvcTemplate.Services.Data;
-    using VersOne.Epub;
 
     public class UploadController : BaseController
     {
@@ -19,9 +16,9 @@
 
         [HttpPost]
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
-        public ActionResult UploadBook(HttpPostedFileBase file)
+        public ActionResult UploadBook(HttpPostedFileBase file, string category, string language)
         {
-            var uploadStatus = this.uploads.UploadFile(file);
+            var uploadStatus = this.uploads.UploadFile(file, category, language);
 
             this.ViewBag.Message = uploadStatus;
             return this.View();
@@ -33,45 +30,5 @@
         {
             return this.View();
         }
-
-        public ActionResult Test()
-        {
-            var testBook = new Book();
-            testBook.Title = "TestBook";
-            var content = new BookContent();
-            string view = string.Empty;
-            string path = @"C:\Users\donch\Desktop\The-Metronome.epub";
-            EpubBook epubBook = EpubReader.ReadBook(path);
-            var pageCss = epubBook.Content.Css.Values;
-            foreach (var pagCss in pageCss)
-            {
-                view += pagCss.Content;
-            }
-
-            view = "<style>" + view + "</style>" + Environment.NewLine;
-            var htmlPages = epubBook.Content.Html;
-            var navigation = epubBook.Navigation;
-            //foreach (var navItem in navigation)
-            //{
-            //    this.ViewBag.Message += navItem.Link.ContentFileName + "->" + navItem.Title +"<br/>";
-            //}
-            this.ViewBag.Message = view + htmlPages["index_split_009.html"].Content;
-            //foreach (var page in htmlPages)
-            //{
-            //    this.ViewBag.Message += string.Format("{0} {1}", view, page.Key);
-            //}
-
-            return this.View();
-        }
-
-        //public ActionResult ParseBook()
-        //{
-        //    ApplicationDbContext db = new ApplicationDbContext();
-        //    var parser = new EpubFileParserService(this.fileStream);
-
-        //    var bookTitle = parser.GetTitle();
-
-        //    return this.View();
-        //}
     }
 }

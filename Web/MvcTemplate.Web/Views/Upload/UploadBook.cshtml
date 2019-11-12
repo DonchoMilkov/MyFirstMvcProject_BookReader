@@ -4,15 +4,53 @@
                         FormMethod.Post,
                         new { enctype = "multipart/form-data" }))
 {
-    <label for="file">Upload .epub file:</label>
-    <input type="file" name="file" id="file"/>
-    <br>
-    <br>
-
-    <input type="submit" value="Upload File" />
-
-    <br>
     <br>
 
     @ViewBag.Message
+
+    <fieldset>
+        <legend>Upload book</legend>
+        <div>
+            <label for="file">Upload .epub file:</label>
+            <input type="file" name="File" id="file" />
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Choose Category:</label>
+            <div class="col-lg-10">
+                <div class="radio col-3 d-inline-block">
+                    <label>
+                        <input type="radio" name="Category" id="categoryRadios1" value="option1" checked="">
+                        Category1
+                    </label>
+                </div>
+                @for (int i = 2; i < 10; i++)
+                {
+                    <div class="radio col-3 d-inline-block">
+                        <label>
+                            <input type="radio" name="Category" id="categoryRadios @i" value="option @i">
+                            Category"@i"
+                        </label>
+                    </div>
+                }
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="select" class="col-lg-2 control-label">Selects</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="select" name="Language">
+                    <option value="English">English</option>
+                    <option value="Bulgarian">Bulgarian</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </fieldset>
 }
+     

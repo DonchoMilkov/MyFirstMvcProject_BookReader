@@ -5,6 +5,6 @@
 
     public interface IFileParserService
     {
-        Book ParseEpubBook(EpubBook epubBook);
+        Book ParseEpubBook(EpubBook epubBook, BookCategory category);
     }
 }
