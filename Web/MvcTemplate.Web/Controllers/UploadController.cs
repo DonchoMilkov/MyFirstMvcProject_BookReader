@@ -1,17 +1,24 @@
 ﻿namespace MvcTemplate.Web.Controllers
 {
+    using System.Linq;
     using System.Web;
     using System.Web.Mvc;
     using MvcTemplate.Common;
+    using MvcTemplate.Common.Mapping;
     using MvcTemplate.Services.Data;
+    using MvcTemplate.Web.ViewModels.Home;
 
     public class UploadController : BaseController
     {
         private IUploadBookService uploads;
+        private ICategoryService categories;
 
-        public UploadController(IUploadBookService uploads)
+        public UploadController(
+            IUploadBookService uploads,
+            ICategoryService categories)
         {
             this.uploads = uploads;
+            this.categories = categories;
         }
 
         [HttpPost]
@@ -28,7 +35,13 @@
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
         public ActionResult UploadBook()
         {
-            return this.View();
+            var allCategories = this.categories.GetAll().To<BookCategoryViewModel>().ToList();
+            var viewModel = new UploadBookViewModel()
+            {
+                Categories = allCategories,
+            };
+
+            return this.View(viewModel);
         }
     }
 }

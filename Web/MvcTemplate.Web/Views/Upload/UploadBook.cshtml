@@ -1,56 +1,69 @@
-﻿<h2>Book Upload</h2>
-@using (Html.BeginForm("UploadBook",
-                        "Upload",
-                        FormMethod.Post,
-                        new { enctype = "multipart/form-data" }))
-{
-    <br>
+﻿@model MvcTemplate.Web.ViewModels.Home.UploadBookViewModel
+    <div class="container">
+        <h2>Book Upload</h2>
+        @using (Html.BeginForm("UploadBook",
+                                "Upload",
+                                FormMethod.Post,
+                                new { enctype = "multipart/form-data" }))
+        {
+            <br>
+            var categories = MvcTemplate.Common.GlobalConstants.basicBookCategories;
+            @ViewBag.Message
 
-    @ViewBag.Message
-
-    <fieldset>
-        <legend>Upload book</legend>
-        <div>
-            <label for="file">Upload .epub file:</label>
-            <input type="file" name="File" id="file" />
-        </div>
-        <div class="form-group">
-            <label class="col-lg-2 control-label">Choose Category:</label>
-            <div class="col-lg-10">
-                <div class="radio col-3 d-inline-block">
-                    <label>
-                        <input type="radio" name="Category" id="categoryRadios1" value="option1" checked="">
-                        Category1
-                    </label>
-                </div>
-                @for (int i = 2; i < 10; i++)
-                {
-                    <div class="radio col-3 d-inline-block">
-                        <label>
-                            <input type="radio" name="Category" id="categoryRadios @i" value="option @i">
-                            Category"@i"
-                        </label>
+            <div class="row lg-8 ml-0 p-0">
+                <div class="card mb-3 col-4 p-0">
+                    <div class="card-header bg-dark text-white">Upload book</div>
+                    <div class="card-body bg-light">
+                        <div>
+                            <label for="file">Select .epub file:</label>
+                            <input type="file" name="File" id="file" required />
+                        </div>
                     </div>
-                }
-
+                </div>
+                <div class="col-1"></div>
+                <div class="form-group card col-3 p-0">
+                    <label for="select" class="control-label card-header">Language:</label>
+                    <div class="card-body">
+                        <select class="form-control" id="select" name="Language">
+                            <option value="English">English</option>
+                            <option value="Bulgarian">Bulgarian</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="select" class="col-lg-2 control-label">Selects</label>
-            <div class="col-lg-10">
-                <select class="form-control" id="select" name="Language">
-                    <option value="English">English</option>
-                    <option value="Bulgarian">Bulgarian</option>
-                    <option value="Other">Other</option>
-                </select>
+            <div class="card mb-3 form-group p-0 col-lg-8">
+                <label class="card-header control-label">Choose Category:</label>
+                <div class="card-body">
+                    <div class="align-self-center">
+                        @for (int i = 0; i < categories.Length; i++)
+                        {
+                            if (i == 0)
+                            {
+                                <div class="radio col-sm-6 col-md-4 col-lg-3 d-inline-block top align-self-center">
+                                    <label>
+                                        <input type="radio" name="Category" id="categoryOption@(i)" value="@categories[i]" checked="">
+                                        @categories[i]
+                                    </label>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="radio col-sm-6 col-md-4 col-lg-3 d-inline-block">
+                                    <label>
+                                        <input type="radio" name="Category" id="categoryOption@(i)" value="@categories[i]">
+                                        @categories[i]
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
+            <div class="col-lg-offset-2">
                 <button type="reset" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Upload</button>
             </div>
-        </div>
-    </fieldset>
-}
-     
+
+        }
+    </div>

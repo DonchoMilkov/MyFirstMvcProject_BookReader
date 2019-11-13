@@ -1,14 +1,9 @@
 ﻿namespace MvcTemplate.Web.ViewModels.Home
 {
-    using System.Web;
+    using System.Collections.Generic;
 
     public class UploadBookViewModel
     {
-        public string Category { get; set; }
-
-        public string Language { get; set; }
-
-        public HttpPostedFileBase File { get; set; }
-
+        public List<BookCategoryViewModel> Categories { get; set; }
     }
 }
