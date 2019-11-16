@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@(this.ViewBag.Title) - ReadIt v1.0</title>
     @Styles.Render("~/Content/css")
+    <link href="~/Content/Style.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -22,7 +23,9 @@
     </nav>
 
     <main role="main">
-        @(this.RenderBody())
+        <div style="background:background-color">
+            @(this.RenderBody())
+        </div>
         <hr />
     </main>
 

@@ -5,17 +5,62 @@
     ViewBag.Title = "All Books";
 }
 
-    <div class="card mb-3" style="max-width: 20rem; display:inline-block">
-        <div class="card-header">Categories:</div>
-        <div class="card-body">
-            <div class="bs-component">
-                <div class="list-group">
-                    @foreach (var category in categories)
-                    {
-                        <a href="#" class="list-group-item list-group-item-action">
-                            @category.Name
-                        </a>
-                    }
+    <div class="container">
+        <form class="form-inline mb-5 active" action="/Books/AllBooks" autocomplete="off" id="Search" method="get">
+            <input class="form-control form-control-sm mr-3 w-75" type="text" name="search" id="SearchTerm" placeholder="Look for a Book" maxlength="100">
+            <input class="d-none" type="submit" id="SearchButton" value="">
+        </form>
+        <div class="row">
+            <div class="card mb-3" style="max-width: 20rem; display:inline-block">
+                <div class="card-header">Categories:</div>
+                <div class="card-body">
+                    <div class="bs-component">
+                        <div class="list-group">
+                            @foreach (var category in categories)
+                            {
+                                <a href="@Url.Action("AllBooks", new { categoryName = category.Name})" class="list-group-item list-group-item-action">
+                                    @category.Name
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 ">
+                <div class="bs-component">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                @foreach (var book in Model.Books)
+                                {
+                                    <li class="list-group-item p-1 border-0 col-4">
+                                        <div class="bg-white card order-list shadow-sm gold-members p-2 border-info ">
+                                            <div class="media">
+                                                <img class="mr-4 rounded" src="@book.UrlBookCover" alt="Cover image" width="80" />
+                                                <div class="media-body">
+                                                    <h6 class="mb-2">
+                                                        <a href="@book.UrlReview" class="text-dark">
+                                                            <strong>@book.Title</strong> <br />
+                                                            By
+                                                            @foreach (var author in book.Authors)
+                                                            {
+                                                                <em>@author.Name</em>
+                                                                <br />
+                                                            }
+                                                        </a>
+                                                    </h6>
+                                                    <p class="text-gray mb-1">
+                                                        <i class="icofont-location-arrow"></i>
+                                                        Genre: @book.Category <br />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

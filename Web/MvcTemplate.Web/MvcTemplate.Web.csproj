@@ -266,6 +266,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.paper.css" />
     <Content Include="Content\bootstrap.paper.min.css" />
+    <Content Include="Content\Style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

@@ -1,5 +1,6 @@
 ﻿namespace MvcTemplate.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
     using MvcTemplate.Common.Mapping;
@@ -61,15 +62,28 @@
         }
 
         [AllowAnonymous]
-        public ActionResult AllBooks()
+        public ActionResult AllBooks(string categoryName, string search)
         {
-            var books = this.books.GetAllBooks().To<BookViewModel>().ToList();
+            var bookList = new List<BookViewModel>();
+            if (categoryName != null)
+            {
+                bookList = this.books.GetAllBooks().Where(x => x.Category.Name == categoryName).To<BookViewModel>().ToList();
+            }
+            else if (search != null)
+            {
+                bookList = this.books.GetAllBooks().Where(x => x.Title.ToLower().Contains(search.ToLower())).To<BookViewModel>().ToList();
+            }
+            else
+            {
+                bookList = this.books.GetAllBooks().To<BookViewModel>().ToList();
+            }
+
             var categories =
                 this.Cache.Get("categories", () => this.bookCategories.GetAll().To<BookCategoryViewModel>().ToList(), 30 * 60);
 
             var viewModel = new AllBooksViewModel
             {
-                Books = books,
+                Books = bookList,
                 BookCategories = categories,
             };
 

@@ -18,20 +18,23 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 ">
             <div class="bs-component">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Top Rated Books</div>
+                    <div class="panel-heading">
+                        <div class="align-items-center p-2 m-3 mb-0 bg-info rounded shadow col-4">
+                                <h5 class="mb-0 text-white">Top Rated Books</h5>
+                        </div>
+                    </div>
                     <div class="panel-body">
-                        <div class="pane"></div>
+                        <div class="panel"></div>
                         <ul class="list-group">
                             @foreach (var book in Model.TopRatedBooks)
                             {
-                                <li class="list-group-item">
-                                    <div class="bg-white card order-list shadow-sm">
-                                        <div class="gold-members p-4">
+                                <li class="list-group-item p-2 border-0">
+                                    <div class="bg-white card order-list shadow-sm gold-members p-4 border-info">
                                             <div class="media">
-                                                <img class="mr-4" src="@book.UrlBookCover" alt="Cover image" width="120" />
+                                                <img class="mr-4 rounded" src="@book.UrlBookCover" alt="Cover image" width="120" />
                                                 <div class="media-body">
                                                     <span class="float-right text-info">
                                                         Uploaded on <br />
@@ -56,7 +59,7 @@
                                                     </p>
                                                     <hr>
                                                     <div class="float-right">
-                                                        <a class="btn btn-sm btn-outline-primary" href="#">
+                                                        <a class="btn btn-sm btn-secondary" href="@book.UrlReview">
                                                             Go to this book
                                                         </a>
                                                         <a class="btn btn-sm btn-primary" href="#">
@@ -66,7 +69,6 @@
 
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </li>
                             }
@@ -78,50 +80,52 @@
         <div class="col-lg-6">
             <div class="bs-component">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Latest Uploads</div>
+                    <div class="panel-heading">
+                        <div class="align-items-center p-2 m-3 mb-0 bg-info rounded shadow col-4">
+                            <h5 class="mb-0 text-white">Latest Uploads</h5>
+                        </div>
+                    </div>
                     <div class="panel-body">
                         <div class="pane"></div>
                         <ul class="list-group">
                             @foreach (var book in Model.LatestUploadedBooks)
                             {
-                                <li class="list-group-item">
-                                    <div class="bg-white card  order-list shadow-sm">
-                                        <div class="gold-members p-4">
-                                            <div class="media">
-                                                <img class="mr-4" src="@book.UrlBookCover" alt="Cover image" width="120" />
-                                                <div class="media-body">
-                                                    <span class="float-right text-info">
-                                                        Uploaded on <br />
-                                                        @book.CreatedOn.ToShortDateString()
-                                                    </span>
-                                                    <h6 class="mb-2">
-                                                        <a href="@book.UrlReview" class="text-dark">
-                                                            <strong>@book.Title</strong> <br />
-                                                            By
-                                                            @foreach (var author in book.Authors)
-                                                            {
-                                                                <em>@author.Name</em>
-                                                                <br />
-                                                            }
-                                                        </a>
-                                                    </h6>
-                                                    <p class="text-gray mb-1">
-                                                        <i class="icofont-location-arrow"></i>
-                                                        Genre: @book.Category <br />
-                                                        Language: @book.Language <br />
-                                                        Raiting: @book.Raiting <br />
-                                                    </p>
-                                                    <hr>
-                                                    <div class="float-right">
-                                                        <a class="btn btn-sm btn-outline-primary" href="#">
-                                                            Go to this book
-                                                        </a>
-                                                        <a class="btn btn-sm btn-primary" href="#">
-                                                            Add to my shelf
-                                                        </a>
-                                                    </div>
-
+                                <li class="list-group-item p-2 border-0">
+                                    <div class="bg-white card  order-list shadow-sm gold-members p-4 border-info">
+                                        <div class="media">
+                                            <img class="mr-4 rounded" src="@book.UrlBookCover" alt="Cover image" width="120" />
+                                            <div class="media-body">
+                                                <span class="float-right text-info">
+                                                    Uploaded on <br />
+                                                    @book.CreatedOn.ToShortDateString()
+                                                </span>
+                                                <h6 class="mb-2">
+                                                    <a href="@book.UrlReview" class="text-dark">
+                                                        <strong>@book.Title</strong> <br />
+                                                        By
+                                                        @foreach (var author in book.Authors)
+                                                        {
+                                                            <em>@author.Name</em>
+                                                            <br />
+                                                        }
+                                                    </a>
+                                                </h6>
+                                                <p class="text-gray mb-1">
+                                                    <i class="icofont-location-arrow"></i>
+                                                    Genre: @book.Category <br />
+                                                    Language: @book.Language <br />
+                                                    Raiting: @book.Raiting <br />
+                                                </p>
+                                                <hr>
+                                                <div class="float-right">
+                                                    <a class="btn btn-sm btn-secondary" href="#">
+                                                        Go to this book
+                                                    </a>
+                                                    <a class="btn btn-sm btn-primary" href="#">
+                                                        Add to my shelf
+                                                    </a>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>

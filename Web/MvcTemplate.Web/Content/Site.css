@@ -1,6 +1,8 @@
 ﻿body {
     min-height: 75rem;
     padding-top: 4.5rem;
+    background-color: #ccc
+
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 

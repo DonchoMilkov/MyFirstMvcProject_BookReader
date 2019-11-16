@@ -1,10 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using MvcTemplate.Data.Common.Models;
-
-namespace MvcTemplate.Data.Models
+﻿namespace MvcTemplate.Data.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using MvcTemplate.Data.Common.Models;
+
     public class HtmlPagingItem : IAuditInfo, IDeletableEntity
     {
         [Key]
