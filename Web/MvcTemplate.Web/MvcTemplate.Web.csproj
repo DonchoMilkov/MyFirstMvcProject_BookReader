@@ -224,6 +224,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
     <Compile Include="Controllers\UploadController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,6 +243,7 @@
     <Compile Include="ViewModels\Home\BookViewModel.cs" />
     <Compile Include="ViewModels\Home\BookCategoryViewModel.cs" />
     <Compile Include="ViewModels\Home\AllBooksViewModel.cs" />
+    <Compile Include="ViewModels\Home\BookShelfViewModel.cs" />
     <Compile Include="ViewModels\Home\ReadViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\Home\UploadBookViewModel.cs" />
@@ -360,6 +362,7 @@
     <Content Include="Views\Books\Review.cshtml" />
     <Content Include="Views\Books\AllBooks.cshtml" />
     <Content Include="Views\Upload\Test.cshtml" />
+    <Content Include="Views\User\MyShelf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
