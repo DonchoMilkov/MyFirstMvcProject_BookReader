@@ -15,8 +15,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">@(this.Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, new { @class = "nav-link" }))</li>
-                <li class="nav-item active">@(this.Html.ActionLink("All Books", "AllBooks", "Books", new { area = string.Empty }, new { @class = "nav-link" }))</li>
+                <li class="nav-item active">@(this.Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, new { title = "Home Page", @class = "nav-link" }))</li>
+                <li class="nav-item active">@(this.Html.ActionLink("All Books", "AllBooks", "Books", new { area = string.Empty }, new { title = "All Books", @class = "nav-link" }))</li>
+                @if (Request.IsAuthenticated)
+                {
+                    <li class="nav-item active">@(this.Html.ActionLink("My Shelf", "MyShelf", "User", new { area = string.Empty }, new  {title = "My Shelf", @class = "nav-link" }))</li>
+                }
+
             </ul>
             @(this.Html.Partial("_LoginPartial"))
         </div>
