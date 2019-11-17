@@ -57,6 +57,7 @@
     <Compile Include="ContentParseService.cs" />
     <Compile Include="Contracts\IContentParseService.cs" />
     <Compile Include="Contracts\IPageService.cs" />
+    <Compile Include="IUserService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="BookService.cs" />
     <Compile Include="CategoryService.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Contracts\IUploadBookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UploadBookService.cs" />
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\MvcTemplate.Data.Common\MvcTemplate.Data.Common.csproj">

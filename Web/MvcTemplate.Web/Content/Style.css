@@ -1,0 +1,13 @@
+﻿body {
+    background-color: #ddd0b8;
+
+}
+
+li.list-group-item {
+    background: transparent
+}
+.gold-members {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTysVlfNdSnfaT2pmGPqVV5-ZL1NhVTf8wy-glR7qZIKDLteHee&s");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
