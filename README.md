@@ -1,2 +1,2 @@
-# MyFirstMvcProject_BookReader
+# ReadIt
 Book reader
