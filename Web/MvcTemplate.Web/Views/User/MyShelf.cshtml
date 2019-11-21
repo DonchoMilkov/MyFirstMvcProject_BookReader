@@ -3,55 +3,56 @@
     ViewBag.Title = "MyShelf";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>MyShelf</h2>
-<h3>@ViewBag.Message</h3>
-<div class="col-lg-9 ">
-    <div class="bs-component">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <ul class="list-group">
-                    @foreach (var book in Model.BooksOnShelf)
-                    {
-                        <li class="list-group-item p-1 border-0 col-4">
-                            <div class="bg-white card order-list shadow-sm gold-members p-2 border-info ">
-                                <div class="media">
-                                    <img class="mr-4 rounded" src="@book.UrlBookCover" alt="Cover image" width="80" />
-                                    <div class="media-body">
-                                        <h6 class="mb-2">
-                                            <a href="@book.UrlReview" class="text-dark">
-                                                <strong>@book.Title</strong> <br />
-                                                By
-                                                @foreach (var author in book.Authors)
-                                                {
-                                                    <em>@author.Name</em>
-                                                    <br />
-                                                }
-                                            </a>
-                                        </h6>
-                                        <p class="text-gray mb-1">
-                                            <i class="icofont-location-arrow"></i>
-                                            Genre: @book.Category <br />
-                                        </p>
-                                        <hr>
-                                        <div class="float-right">
-                                            <a class="btn btn-sm btn-secondary" href="@book.UrlReview">
-                                                Go to this book
-                                            </a>
-                                            <a class="btn btn-sm btn-warning" href="@Url.Action("RemoveFromShelf", "User", new { BookId = book.EncodedId })">
-                                                Remove from my shelf
-                                            </a>
+    <div class="container">
+        <h2>My Shelf</h2>
+        <h3>@ViewBag.Message</h3>
+        <div class="col-lg-12 ">
+            <div class="bs-component">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            @foreach (var book in Model.BooksOnShelf)
+                            {
+                                <li class="list-group-item p-1 border-0 col-4">
+                                    <div class="bg-white card order-list shadow-sm gold-members p-2 border-info ">
+                                        <div class="media">
+                                            <img class="mr-4 rounded" src="@book.UrlBookCover" alt="Cover image" width="80" />
+                                            <div class="media-body">
+                                                <h6 class="mb-2">
+                                                    <a href="@book.UrlReview" class="text-dark">
+                                                        <strong>@book.Title</strong> <br />
+                                                        By
+                                                        @foreach (var author in book.Authors)
+                                                        {
+                                                            <em>@author.Name</em>
+                                                            <br />
+                                                        }
+                                                    </a>
+                                                </h6>
+                                                <p class="text-gray mb-1">
+                                                    <i class="icofont-location-arrow"></i>
+                                                    Genre: @book.Category <br />
+                                                </p>
+                                                <hr>
+                                                <div class="float-right">
+                                                    <a class="btn btn-sm btn-secondary" href="@book.UrlReview">
+                                                        Go to this book
+                                                    </a>
+                                                    <a class="btn btn-sm btn-warning" href="@Url.Action("RemoveFromShelf", "User", new { BookId = book.EncodedId })">
+                                                        Remove from my shelf
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </li>
-                    }
-                </ul>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 

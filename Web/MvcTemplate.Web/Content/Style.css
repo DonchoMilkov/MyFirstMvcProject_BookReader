@@ -1,6 +1,5 @@
 ﻿body {
     background-color: #ddd0b8;
-
 }
 
 li.list-group-item {
@@ -11,3 +10,24 @@ li.list-group-item {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.card-body {
+    background-color: #ffe ;
+}
+div#reading-window{
+    background-color:#ffe;
+}
+div#legend.table-of-contents {
+    background-color: #ffe;
+    max-height:700px;
+    overflow-x:auto;
+}
+div#categoryList {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTysVlfNdSnfaT2pmGPqVV5-ZL1NhVTf8wy-glR7qZIKDLteHee&s");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 0;
+}
+    div#categoryList div {
+        background-color:transparent;
+        border: none;
+    }

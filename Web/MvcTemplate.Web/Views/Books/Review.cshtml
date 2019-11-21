@@ -17,40 +17,39 @@
                         </h2>
                     </div>
                 </div>
-                <div class="card-body row">
-                    <div class="col-4">
-                        <img src='/Books/GetBookCoverImage/@Model.EncodedId' style="max-width:100%" alt='CoverImage' />
-                    </div>
-                    <div class="col-8 list-group">
-                        <ul>
-                            <li class="list-group-item mb-2">
-                                Published on: @Model.Category
-                            </li>
-                            <li class="list-group-item mb-2">
-                                Language: @Model.Language
-                            </li>
-                            <li class="list-group-item mb-2">
-                                Raiting: @Model.Raiting
-                            </li>
-                            <li class="list-group-item mb-2">
-                                Published on: @Model.CreatedOn
-                            </li>
-                            <li class="list-group-item mb-2">
-                                Description: No description
-                            </li>
-                            <li class="list-group-item border-0">
-                                <div class="row">
-                                    <a href="@Model.UrlReading" class="col-12 btn btn-secondary mt-2 mb-2">Read</a>
-                                </div>
-                                <div class="row">
-                                    <a href="" class="col-12 btn btn-primary">Add To My Shelf</a>
-                                </div>
+                    <div class="card-body col-12">
+                        <div class="col-3 d-inline-block">
+                            <img src='/Books/GetBookCoverImage/@Model.EncodedId' style="max-width:100%" alt='CoverImage' />
+                        </div>
+                        <div class="list-group col-8 d-inline-block align-top">
+                            <ul class="list-group">
+                                <li class="list-group-item p-2 border-0">
+                                    <div class="row">
+                                        <a href="@Model.UrlReading" class="col-12 btn btn-secondary mt-2 mb-2">Read</a>
+                                    </div>
+                                    <div class="row">
+                                        <a href="" class="col-12 btn btn-primary">Add To My Shelf</a>
+                                    </div>
 
-                            </li>
-                        </ul>
+                                </li>
+                                <li class="list-group-item mb-2 p-0 border-0">
+                                    Category: @Model.Category
+                                </li>
+                                <li class="list-group-item mb-2 p-0 border-0">
+                                    Language: @Model.Language
+                                </li>
+                                <li class="list-group-item mb-2 p-0 border-0">
+                                    Raiting: @Model.Raiting
+                                </li>
+                                <li class="list-group-item mb-2 p-0 border-0">
+                                    Published on: @Model.CreatedOn
+                                </li>
+                                <li class="list-group-item mb-2 p-0 border-0">
+                                    Description: No description
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
             </div>
         </div>
     </div>

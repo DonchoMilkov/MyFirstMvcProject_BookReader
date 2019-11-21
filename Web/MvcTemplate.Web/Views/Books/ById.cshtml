@@ -20,16 +20,16 @@
             }
         </h6>
         <hr />
-        <div class="row">
+        <div class="row he">
             <div class="col-md-3">
-                <div class="list-group table-of-contents">
+                <div id ="legend" class="list-group table-of-contents rounded">
                     @foreach (var navItem in book.BookContent.Navigation)
                     {
                         <a class="list-group-item" href="@Url.Action("ByChapter", new { bookId = book.EncodedId, chapter = navItem.Chapter})">@navItem.Chapter</a>
                     }
                 </div>
             </div>
-            <div class="col-md-9">
+            <div id="reading-window" class="col-md-9">
                 <p>
                     @Html.Raw(book.BookContent.StyleSheet)
                     @Html.Raw(currntPage.HtmlContent)
